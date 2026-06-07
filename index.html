@@ -1,0 +1,955 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══════════════════════════════════════════════════════════
+    EDITAR: Cambia [TU NOMBRE] y [TU CIUDAD] en el título
+  ══════════════════════════════════════════════════════════ -->
+  <title>ARQ. [mi arquis] — Servicios de Arquitectura · [TU CIUDAD]</title>
+
+  <!-- SEO básico — editar con tu información real -->
+  <meta name="description" content="Servicios arquitectónicos profesionales: diseño residencial, comerciales, escolar y supervisión de obra en [TU CIUDAD]. ARQ. [TU NOMBRE] — [X] años de experiencia.">
+  <meta name="author"      content="ARQ. [TU NOMBRE]">
+  <meta property="og:title"       content="ARQ. [TU NOMBRE] — Arquitectura Profesional">
+  <meta property="og:description" content="Diseño residencial, comercial, escolar y supervisión de autoconstrucción en [TU CIUDAD].">
+  <meta property="og:type"        content="website">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+  NAVIGATION
+  ── Editar: [TU NOMBRE] en .nav-logo
+════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="navbar">
+  <a class="nav-logo" href="#inicio">
+    <span>Mi ARQUI.</span> [on line]
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#obras">Portafolio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#planes">Planes</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#testimonios">Clientes</a></li>
+  </ul>
+
+  <button class="nav-cta" onclick="openModal('Consulta Inicial')">Agendar Cita</button>
+
+  <div class="nav-hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+  HERO
+  ── Para agregar foto de fondo edita .hero-bg en estilos.css
+════════════════════════════════════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+
+    <div class="hero-eyebrow">Asesoria · Diseño · Supervisión</div>
+
+    <!-- EDITAR: el h1 es tu propuesta de valor principal -->
+    <h1 class="hero-title">
+      Asesoramos<br>
+      <em>Diseñamos</em><br>
+      Construimos
+    </h1>
+
+    <p class="hero-subtitle">
+      Nuestro trabajo de arquitecto o ingeniero no lo veas como un lujo sino como un apoyo necesario para tus proyectos
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
+        Ver Planes de Servicio
+      </button>
+      <a class="btn-ghost" href="#obras">Ver Portafolio</a>
+    </div>
+
+    <!-- Stats — los números se llenan desde app.js (STATS object) -->
+    <div class="hero-stats">
+      <div class="hs-item">
+        <span class="hs-num" id="stat-proyectos">+00</span>
+        <span class="hs-lbl">Proyectos</span>
+      </div>
+      <div class="hs-item">
+        <span class="hs-num" id="stat-anos">00</span>
+        <span class="hs-lbl">Años de experiencia</span>
+      </div>
+      <div class="hs-item">
+        <span class="hs-num" id="stat-clientes">+00</span>
+        <span class="hs-lbl">Clientes satisfechos</span>
+      </div>
+      <div class="hs-item">
+        <span class="hs-num">4</span>
+        <span class="hs-lbl">Mercados</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+  VIDEO CENTRAL
+  ── Para insertar tu video real, ve a la línea del iframe
+     comentado y descoméntala con tu ID de YouTube/Vimeo.
+     Luego borra el div .video-placeholder completo.
+════════════════════════════════════════════════════════════ -->
+<section class="video-section" id="video">
+  <div class="video-wrapper">
+
+    <div style="max-width:480px; margin-bottom:40px;">
+      <div class="section-eyebrow">Showreel</div>
+      <h2 class="section-title">Nuestro <em>trabajo</em><br>habla...</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        El recorrido por uno de nuestros proyectos más desafiantes: una guarderia del IMSS con 4 niveles en 2 predios diferentes.
+      </p>
+    </div>
+
+    <div class="video-container" id="videoContainer">
+      <!-- Cambiado /shorts/ por /embed/ para que el navegador permita la reproducción -->
+      <iframe src="https://youtube.com/embed/loGWJtZq9QY?feature=share" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen 
+              style="position:absolute;inset:0;width:100%;height:100%;">
+      </iframe> 
+    </div> 
+
+    <div class="video-caption"> 
+      <div class="vc-text"> 
+        <div class="vc-title">[guarderia linda vista / showreel 2021]</div> 
+        <div class="vc-desc">dirección: [linda vista] · producción: [supervision de obra] · [guadalupe, 2021]</div> 
+      </div> 
+      <div class="vc-chapters"> 
+        <span class="vcc-item">00:00 patio de serv.</span> 
+        <span class="vcc-item">00:25 comedor maters.</span> 
+        <span class="vcc-item">00:45 pasillos</span> 
+        <span class="vcc-item">01:05 filtro</span> 
+        <span class="vcc-item">01:30 patio</span> 
+      </div> 
+    </div> 
+  </div> 
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  GALERÍA DE OBRAS (6 fotos)
+  ── Para cada obra:
+     1. Borra el div .gi-placeholder
+     2. Agrega: <img src="img/obra-N.jpg" alt="Descripción">
+     3. Edita gi-category, gi-title y gi-location
+  ── Tamaños recomendados:
+       Obra 1 (principal): 1680 × 945 px
+       Obras 2-6:           840 × 630 px
+════════════════════════════════════════════════════════════ -->
+<section class="gallery-section" id="obras">
+
+  <div class="gallery-header">
+    <div>
+      <div class="section-eyebrow">Portafolio</div>
+      <h2 class="section-title">Obras <em>realizadas</em></h2>
+    </div>
+    <!-- Filtros — los data-filter deben coincidir con data-category de cada item -->
+    <div class="gallery-filter">
+      <button class="gf-btn active" data-filter="all">Todos</button>
+      <button class="gf-btn" data-filter="residenciales">residenciales</button>
+      <button class="gf-btn" data-filter="comerciales">comerciales</button>
+      <button class="gf-btn" data-filter="educativos">educativos</button>
+      <button class="gf-btn" data-filter="supervision">Supervisión</button>
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <!-- ── OBRA 1: Foto principal (ocupa 2 columnas) ── -->
+    <div class="gallery-item" data-category="comerciales">
+      <div class="gi-img">
+         <img src="img/5-eventos-cumbres.webp" alt="[Salon de eventos Lozano]">
+       
+      </div>
+      <div class="gi-overlay">
+        <div class="gi-category">comerciales</div>
+        <div class="gi-title">[Salon de eventos Lozano]</div>
+        <div class="gi-location">[Monterrey, Nuevo Leon · 2019]</div>
+      </div>
+    </div>
+
+    <!-- ── OBRA 2 ── -->
+    <div class="gallery-item" data-category="comercial">
+      <div class="gi-img">
+        <img src="img/3-educando-aprende.webp" alt="[Guarderia IMSS]"> 
+        
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto obra 2 (840×630px)</span>
+        </div>
+      </div>
+      <div class="gi-overlay">
+        <div class="gi-category">educativos</div>
+        <div class="gi-title">[Guarderia IMSS]</div>
+        <div class="gi-location">[Monterrey, Nuevo Leon · 2017]</div>
+      </div>
+    </div>
+
+    <!-- ── OBRA 3 ── -->
+    <div class="gallery-item" data-category="escolar">
+      <div class="gi-img">
+        <img src="img/4-naha-escobedo-_1_.webp" alt="[NAHA Colegio]">
+        
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto obra 3 (840×630px)</span>
+        </div>
+      </div>
+      <div class="gi-overlay">
+        <div class="gi-category">educativo</div>
+        <div class="gi-title">[NAHA colegio]</div>
+        <div class="gi-location">[Escobedo, Nuevo Leon · 2018]</div>
+      </div>
+    </div>
+
+    <!-- ── OBRA 4 ── -->
+    <div class="gallery-item" data-category="comerciales">
+      <div class="gi-img">
+        <img src="img/8-oficinas-CIQA.webp" alt="[Oficinas CIQA 2023]">
+        
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto obra 4 (840×630px)</span>
+        </div>
+      </div>
+      <div class="gi-overlay">
+        <div class="gi-category">comerciales</div>
+        <div class="gi-title">[Oficinas CIQA 2023]</div>
+        <div class="gi-location">[Saltillo, Coahuila · 2023]</div>
+      </div>
+    </div>
+
+    <!-- ── OBRA 5 ── -->
+    <div class="gallery-item" data-category="educativos">
+      <div class="gi-img">
+        <img src="img/7-Estancias-EPIM.webp" alt="[Nombre del proyecto]"> 
+        
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto obra 5 (840×630px)</span>
+        </div>
+      </div>
+      <div class="gi-overlay">
+        <div class="gi-category">educativos</div>
+        <div class="gi-title">[Guarderia IMSS EPIM]</div>
+        <div class="gi-location">[Guadalupe, Nuevo Leon · 2021]</div>
+      </div>
+    </div>
+
+    <!-- ── OBRA 6 ── -->
+    <div class="gallery-item" data-category="comerciales">
+      <div class="gi-img">
+         <img src="img/6-torre-411.webp" alt="[Torre 411]">
+        
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto obra 6 (840×630px)</span>
+        </div>
+      </div>
+      <div class="gi-overlay">
+        <div class="gi-category">comerciales/div>
+        <div class="gi-title">[Torre 411]</div>
+        <div class="gi-location">[Monterrey, Nuevo Leon · 2020]</div>
+      </div>
+    </div>
+
+  
+
+  <div class="gallery-cta">
+    <button class="btn-ghost">Ver portafolio completo →</button>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+  SERVICIOS (4 tarjetas)
+  ── Editar: descripciones, features y el mercado de cada tarjeta
+════════════════════════════════════════════════════════════ -->
+<section class="services-section" id="servicios">
+  <div class="services-intro">
+    <div>
+      <div class="section-eyebrow">Especialidades</div>
+      <h2 class="section-title">¿En qué te<br>vamos <em>apoyar?</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Desde el concepto hasta la entrega de llaves. Trabajamos en todos los mercados
+        con un mismo estándar de apoyo, calidad y compromiso profesional.
+      </p>
+    </div>
+    <div style="padding-top:20px;">
+      <!-- EDITAR: años, ciudad, cédula y colegio -->
+      <p style="font-size:.9rem;color:rgba(250,248,245,.55);line-height:1.8;">
+        Con más de <strong style="color:var(--stone-l)">[15] años de experiencia</strong> en proyectos a
+        [nivel nacional], la visión de diseño y nuestra agudeza en la costruccion nos an llevado a realizar
+        las soluciones de diseño y construccion que nuestros clientes pensaron que eran imposibles en sus 
+        instalaciones y con esto pudieron cumplir con las exigencias que sus clientes les pedian.
+      </p>
+      <div style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--stone-l);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Trabajo de campo: [75%]
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--stone-l);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Trabajo en escritorio: [25%]
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- ── Servicio 1: Residencial ── -->
+    <div class="service-card" onclick="openModal('Diseño Residencial')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="sc-market">Mercado Residencial</div>
+      <div class="sc-name">Diseños de Casa Habitación</div>
+      <div class="sc-desc">
+        Proyectos arquitectónicos completos para vivienda unifamiliar y multifamiliar,
+        desde el anteproyecto hasta planos ejecutivos y de entorno.
+      </div>
+      <ul class="sc-features">
+        <li>Anteproyecto + renders</li>
+        <li>Planos arquitectónicos y estructurales</li>
+        <li>Gestión de permisos municipales</li>
+        <li>Especificaciones técnicas</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- ── Servicio 2: Comercial ── -->
+    <div class="service-card" onclick="openModal('Proyecto Comercial')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      </div>
+      <div class="sc-market">Mercado Comercial</div>
+      <div class="sc-name">Naves y Espacios Comerciales</div>
+      <div class="sc-desc">
+        Diseño y planificación de espacios comerciales, bodegas, plantas de producción
+        y espacios logísticos optimizados para operación.
+      </div>
+      <ul class="sc-features">
+        <li>Diseño funcional y de layout</li>
+        <li>Cálculo de estructuras</li>
+        <li>Instalaciones especiales</li>
+        <li>Cumplimiento normativo</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- ── Servicio 3: Escolar ── -->
+    <div class="service-card" onclick="openModal('Diseño Escolar')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      </div>
+      <div class="sc-market">Mercado Escolar</div>
+      <div class="sc-name">Infraestructura Educativa</div>
+      <div class="sc-desc">
+        Proyecto y diseño de instituciones educativas, desde jardines de niños
+        hasta preparatorias y universidades, alineados con las normativas IMSS, SEP. etc.
+      </div>
+      <ul class="sc-features">
+        <li>Diseño pedagógico de espacios</li>
+        <li>Normativa SEP y IMSS</li>
+        <li>Accesibilidad universal</li>
+        <li>Áreas exteriores y entorno</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- ── Servicio 4: Supervisión / Autoconstrucción ── -->
+    <div class="service-card" onclick="openModal('Supervisión de Obra')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="sc-market">Autoconstrucción</div>
+      <div class="sc-name">Supervisión de Obra</div>
+      <div class="sc-desc">
+        Asesoria técnica para clientes que están autoconstruyendo. Visitas de
+        supervisión, dictámenes técnicos y resolución de problemas en obra.
+      </div>
+      <ul class="sc-features">
+        <li>Visitas periódicas a obra</li>
+        <li>Informe técnico por visita</li>
+        <li>Resolución de problemas constructivos</li>
+        <li>Asesoría en materiales y costos</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+  PLANES / MEMBRESÍAS (4 módulos)
+  ── Editar: precios en id="price1..4" y los features de cada plan
+════════════════════════════════════════════════════════════ -->
+<section class="plans-section" id="planes">
+
+  <div class="plans-intro">
+    <div class="section-eyebrow" style="justify-content:center">Tarifas</div>
+    <h2 class="section-title">Elige tu <em>plan</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-lead">
+      Planes diseñados para cada etapa de tu proyecto. Todos incluyen una consulta
+      inicial gratuita de 30 minutos para evaluar tu caso.
+    </p>
+  </div>
+
+  <div class="plans-grid">
+
+    <!-- ── Plan 1: Consultoría ── -->
+    <div class="plan-card">
+      <div class="plan-market">Autoconstrucción</div>
+      <div class="plan-name">Consultoría Técnica</div>
+      <div class="plan-desc">Para quien necesita orientación puntual antes de iniciar o durante la obra.</div>
+      <div class="plan-price">
+        <span class="pp-currency">$</span>
+        <!-- EDITAR: reemplaza [XXXX] con tu precio real -->
+        <span class="pp-amount" id="price1">[1,100.00]</span>
+        <span class="pp-period">/ visita</span>
+      </div>
+      <div class="plan-price-note">Por visita a obra · Sin contrato mínimo</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Visita a obra (hasta 2h)
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Informe técnico escrito
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Recomendaciones de mejora
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Seguimiento por WhatsApp 48h
+        </li>
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Planos o diseño incluido
+        </li>
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Supervisión continua
+        </li>
+      </ul>
+      <button class="plan-btn plan-btn-outline" onclick="openModal('Consultoría Técnica')">
+        Agendar Consulta
+      </button>
+    </div>
+
+    <!-- ── Plan 2: Supervisión (DESTACADO) ── -->
+    <div class="plan-card featured">
+      <div class="plan-popular">MÁS CONTRATADO</div>
+      <div class="plan-market">Autoconstrucción</div>
+      <div class="plan-name">Supervisión de Obra</div>
+      <div class="plan-desc">Acompañamiento continuo para proyectos en ejecución. Ideal para autoconstrucción.</div>
+      <div class="plan-price">
+        <span class="pp-currency">$</span>
+        <span class="pp-amount" id="price2">[6,000.00]</span>
+        <span class="pp-period">/ mes</span>
+      </div>
+      <div class="plan-price-note">2 visitas mensuales · Contrato mínimo 3 meses</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          2 visitas supervisión / mes
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Informe técnico por visita
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Bitácora de obra digital
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Asesoría ilimitada por WhatsApp
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Revisión de presupuestos
+        </li>
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Proyecto arquitectónico
+        </li>
+      </ul>
+      <button class="plan-btn plan-btn-solid" onclick="openModal('Supervisión de Obra')">
+        Contratar Ahora
+      </button>
+    </div>
+
+    <!-- ── Plan 3: Proyecto Residencial Completo ── -->
+    <div class="plan-card">
+      <div class="plan-market">Residencial</div>
+      <div class="plan-name">Proyecto Completo</div>
+      <div class="plan-desc">Diseño arquitectónico integral para casa habitación o desarrollo habitacional.</div>
+      <div class="plan-price">
+        <span class="pp-currency">$</span>
+        <span class="pp-amount" id="price3">[98.00]</span>
+        <span class="pp-period">/ m²</span>
+      </div>
+      <!-- EDITAR: mínimo de m² según tu política -->
+      <div class="plan-price-note">Precio por m² de construcción · Mínimo [45] m²</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Anteproyecto + renders 3D
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Planos arquitectónicos
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Planos estructurales
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Instalaciones hidráulicas y eléctricas
+        </li>
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Gestión de licencia de construcción
+        </li>
+        <li class="included">
+          <!-- EDITAR: número de revisiones incluidas -->
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          [3] revisiones de diseño
+        </li>
+      </ul>
+      <button class="plan-btn plan-btn-outline" onclick="openModal('Proyecto Residencial Completo')">
+        Solicitar Cotización
+      </button>
+    </div>
+
+    <!-- ── Plan 4: Proyecto Especializado Industrial / Escolar ── -->
+    <div class="plan-card">
+      <div class="plan-market">Comercial · Escolar</div>
+      <div class="plan-name">Proyecto Especializado</div>
+      <div class="plan-desc">Soluciones para espacios comerciales, hoteleria, planteles educativos y gubernamentales.</div>
+      <div class="plan-price">
+        <span class="pp-currency" style="font-size:1rem;color:var(--stone-l)">Cotización</span>
+        <span class="pp-amount" style="font-size:2rem;">A medida</span>
+      </div>
+      <div class="plan-price-note">Precio según alcance y m² del proyecto</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Todo lo del Plan Residencial
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Estudio de normativa específica
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Coordinación con ingenieros
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Gestión IMSS / dependencias
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Supervisión de obra incluida
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Atención personalizada
+        </li>
+      </ul>
+      <button class="plan-btn plan-btn-outline" onclick="openModal('Proyecto Especializado')">
+        Solicitar Cotización
+      </button>
+    </div>
+
+  </div><!-- /plans-grid -->
+
+  <p class="plans-note">
+    * Todos los precios son en MXN, no incluyen IVA · Consulta inicial gratuita de 30 min ·
+    Formas de pago: efectivo, transferencia, tarjeta
+  </p>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+  PROCESO DE TRABAJO
+  ── Editar: títulos y descripciones de los 4 pasos
+════════════════════════════════════════════════════════════ -->
+<section class="process-section" id="proceso">
+  <div style="max-width:560px;">
+    <div class="section-eyebrow">Metodología</div>
+    <h2 class="section-title">Cómo <em>trabajamos</em><br>juntos</h2>
+    <div class="section-divider"></div>
+    <p class="section-lead">
+      Un proceso claro y ordenado para que siempre sepas en qué etapa está tu
+      proyecto y qué sigue.
+    </p>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="ps-num">01</div>
+      <div class="ps-title">Consulta inicial</div>
+      <div class="ps-desc">Sesión gratuita de 30 min para entender tus necesidades, presupuesto y tiempos. Sin compromiso.</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">02</div>
+      <div class="ps-title">Propuesta y contrato</div>
+      <div class="ps-desc">Presentamos una propuesta de honorarios detallada y formalizamos un contrato digital de servicios profesionales.</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">03</div>
+      <div class="ps-title">Diseño y desarrollo</div>
+      <div class="ps-desc">Desarrollamos el proyecto con revisiones periódicas hasta tu aprobación. Comunicación constante.</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">04</div>
+      <div class="ps-title">Entrega y seguimiento</div>
+      <div class="ps-desc">Entregamos planos ejecutivos completos y damos seguimiento durante la construcción.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+  TESTIMONIOS
+  ── Los testimonios se muestran desde el array TESTIMONIALS en app.js
+  ── Los nuevos comentarios del formulario también se agregan ahí
+════════════════════════════════════════════════════════════ -->
+<section class="testimonials-section" id="testimonios">
+
+  <div class="testimonials-header">
+    <div>
+      <div class="section-eyebrow">Testimonios</div>
+      <h2 class="section-title">Lo que dicen<br><em>nuestros clientes</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="tes-rating-summary">
+      <div class="tes-big-score" id="avgRating">5.0</div>
+      <div>
+        <div class="tes-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="tes-total" id="totalReviews">Basado en 0 reseñas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Las tarjetas se generan por JS desde TESTIMONIALS en app.js -->
+  <div class="testimonials-grid" id="testimonialsGrid"></div>
+
+  <!-- Formulario: dejar reseña -->
+  <div class="leave-review">
+    <div class="lr-title">¿Que te parece nuestro trabajo? Deja tu opinión</div>
+    <div class="form-grid">
+      <div class="form-field">
+        <label>Tu nombre *</label>
+        <input type="text" id="rev_name" placeholder="Nombre completo">
+      </div>
+      <div class="form-field">
+        <label>Tipo de proyecto</label>
+        <select id="rev_project">
+          <option value="">Seleccionar...</option>
+          <option>Casa habitación — Residencial</option>
+          <option>Espacio comercial</option>
+          <option>Instalación educativa</option>
+          <option>Supervisión de obra</option>
+          <option>Consultoría técnica</option>
+          <option>Otro</option>
+        </select>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;">
+      <div style="font-family:var(--fb);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,245,.5);margin-bottom:8px;">
+        Tu calificación *
+      </div>
+      <div class="star-picker" id="starPicker">
+        <svg viewBox="0 0 24 24" data-val="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" data-val="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" data-val="3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" data-val="4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" data-val="5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+    </div>
+    <div class="form-grid g1" style="margin-bottom:16px;">
+      <div class="form-field">
+        <label>Tu comentario *</label>
+        <textarea id="rev_text" rows="3" placeholder="Cuéntanos tu experiencia con el servicio recibido..."></textarea>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="submitReview()">Publicar Reseña</button>
+    <p id="reviewSuccess" style="display:none;margin-top:12px;font-size:.85rem;color:var(--green-l);">
+      ✓ ¡Gracias por tu reseña! Se publicará después de revisión.
+    </p>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+  CTA FINAL
+  ── EDITAR: teléfono WhatsApp, email y ciudad
+════════════════════════════════════════════════════════════ -->
+<section class="cta-final">
+  <div style="position:relative;z-index:1;">
+    <div class="section-eyebrow" style="justify-content:center;">¿Listo para empezar?</div>
+    <h2 class="section-title">Tu proyecto merece<br><em>un arquitecto comprometido</em></h2>
+    <div class="section-divider" style="margin:24px auto 16px;"></div>
+    <p class="section-lead">
+      Primera consulta sin costo. Cuéntanos tu proyecto y en menos de 24h te respondemos
+      con una propuesta personalizada.
+    </p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px;">
+      <button class="btn-primary" onclick="openModal('Consulta Inicial Gratuita')">
+        Agendar Consulta Gratuita
+      </button>
+      <!-- EDITAR: reemplaza 521XXXXXXXXXX con tu número (lada + número sin guiones) -->
+      <a class="btn-ghost"
+         href="https://wa.me/018186052831?text=Hola,%20me%20interesa%20tu%20servicio%20de%20arquitectura"
+         target="_blank">
+        WhatsApp directo →
+      </a>
+    </div>
+    <!-- EDITAR: teléfono, email y ciudad -->
+    <p style="font-size:.78rem;color:rgba(250,248,245,.3);margin-top:20px;">
+      📞 [8186052831] &nbsp;·&nbsp; ✉️ [arquitecturayseguridad@hotmail.com] &nbsp;·&nbsp; 📍 [Monterrey, Nuevo Leon]
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+  FOOTER
+  ── EDITAR: nombre, cédula y año
+════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-logo">MI ARQUI. [on line] — Servicios de Arquitectura</div>
+  <div class="footer-links">
+    <a href="#inicio">Inicio</a>
+    <a href="#obras">Portafolio</a>
+    <a href="#planes">Planes</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#">Aviso de privacidad</a>
+  </div>
+  <div class="footer-copy">
+    © 2025 · Todos los derechos reservados 
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════════════════════
+  MODAL DE COMPRA / AGENDA DE CITAS
+  ── No editar este bloque. Los textos dinámicos los
+     controla app.js (openModal, goToStep, etc.)
+════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+
+    <div class="modal-header">
+      <div>
+        <div class="modal-plan-tag" id="modalPlanTag">Servicio</div>
+        <div class="modal-title"    id="modalTitle">Agendar Consulta</div>
+      </div>
+      <div class="modal-close" onclick="closeModal()">✕</div>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Indicador de pasos -->
+      <div class="modal-steps">
+        <div class="ms-step active" id="step-tab-1">
+          <div class="ms-num">1</div><div class="ms-label">Tus datos</div>
+        </div>
+        <div class="ms-step" id="step-tab-2">
+          <div class="ms-num">2</div><div class="ms-label">Fecha y hora</div>
+        </div>
+        <div class="ms-step" id="step-tab-3">
+          <div class="ms-num">3</div><div class="ms-label">Confirmar</div>
+        </div>
+      </div>
+
+      <!-- STEP 1: Datos del cliente -->
+      <div class="step-panel active" id="step-1">
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">
+          Cuéntame un poco sobre ti y tu proyecto para poder preparar mejor nuestra reunión.
+        </p>
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Nombre completo *</label>
+            <input type="text" id="cl_name" placeholder="Tu nombre">
+          </div>
+          <div class="form-field">
+            <label>Teléfono / WhatsApp *</label>
+            <input type="tel" id="cl_phone" placeholder="10 dígitos">
+          </div>
+          <div class="form-field">
+            <label>Email *</label>
+            <input type="email" id="cl_email" placeholder="correo@ejemplo.com">
+          </div>
+          <div class="form-field">
+            <label>Ciudad / Ubicación del proyecto</label>
+            <input type="text" id="cl_city" placeholder="Ciudad, Estado">
+          </div>
+        </div>
+        <div class="form-grid g1">
+          <div class="form-field">
+            <label>Describe brevemente tu proyecto o necesidad *</label>
+            <textarea id="cl_desc" rows="3"
+              placeholder="Ej: Quiero construir una casa de 120m² en un terreno en esquina...">
+            </textarea>
+          </div>
+          <div class="form-field" style="margin-top:10px;">
+            <label>Presupuesto aproximado (opcional)</label>
+            <select id="cl_budget">
+              <option value="">Prefiero no indicarlo por ahora</option>
+              <option>Menos de $500,000 MXN</option>
+              <option>$500,000 – $1,500,000 MXN</option>
+              <option>$1,500,000 – $3,000,000 MXN</option>
+              <option>Más de $3,000,000 MXN</option>
+              <option>Aún no definido</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span></span>
+          <button class="modal-next-btn" onclick="goToStep(2)">Elegir Fecha →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Calendario -->
+      <div class="step-panel" id="step-2">
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">
+          Selecciona la fecha y hora de tu preferencia. Las reuniones pueden ser presenciales
+          o por videollamada.
+        </p>
+
+        <div class="cal-header">
+          <div class="cal-month" id="calMonth">—</div>
+          <div class="cal-nav">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="cal-days-header">
+          <div class="cal-day-name">Dom</div>
+          <div class="cal-day-name">Lun</div>
+          <div class="cal-day-name">Mar</div>
+          <div class="cal-day-name">Mié</div>
+          <div class="cal-day-name">Jue</div>
+          <div class="cal-day-name">Vie</div>
+          <div class="cal-day-name">Sáb</div>
+        </div>
+
+        <div class="cal-grid" id="calGrid"></div>
+
+        <div class="timeslots-label">Horarios disponibles</div>
+        <div class="timeslots-grid" id="timeslotsGrid"></div>
+
+        <div class="booking-summary" id="bookingSummary">
+          <div class="bs-row"><span>Servicio</span><strong id="bs_service">—</strong></div>
+          <div class="bs-row"><span>Fecha</span><strong id="bs_date">—</strong></div>
+          <div class="bs-row"><span>Hora</span><strong id="bs_time">—</strong></div>
+          <div class="bs-row"><span>Modalidad</span><strong>Presencial o videollamada</strong></div>
+          <div class="bs-row"><span>Duración</span><strong>30 – 60 min</strong></div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="modal-back-btn" onclick="goToStep(1)">← Atrás</button>
+          <button class="modal-next-btn" id="confirmDateBtn"
+                  onclick="goToStep(3)"
+                  style="opacity:.4;pointer-events:none">
+            Confirmar →
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Confirmación -->
+      <div class="step-panel" id="step-3">
+        <div style="text-align:center;padding:20px 0 10px;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(61,107,79,.2);
+                      border:1.5px solid var(--green-l);display:flex;align-items:center;
+                      justify-content:center;margin:0 auto 16px;">
+            <svg width="28" height="28" viewBox="0 0 24 24"
+                 fill="none" stroke="#6a9e7a" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div style="font-family:var(--fp);font-size:1.5rem;font-weight:700;
+                      color:var(--stone-l);margin-bottom:8px;">¡Solicitud enviada!</div>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.7;
+                    max-width:400px;margin:0 auto 24px;">
+            Recibí tu solicitud de consulta. Te confirmaré la cita en menos de
+            <strong style="color:var(--stone-l)">2 horas</strong> por WhatsApp y email.
+          </p>
+        </div>
+
+        <div style="background:rgba(200,184,154,.06);border:1px solid rgba(200,184,154,.15);
+                    border-radius:10px;padding:18px;margin-bottom:20px;">
+          <div class="bs-row"><span>Nombre</span><strong id="conf_name">—</strong></div>
+          <div class="bs-row"><span>Servicio</span><strong id="conf_service">—</strong></div>
+          <div class="bs-row"><span>Fecha y hora</span><strong id="conf_datetime">—</strong></div>
+          <div class="bs-row"><span>Contacto</span><strong id="conf_contact">—</strong></div>
+        </div>
+
+        <!-- EDITAR: número y email de contacto para cambiar citas -->
+        <p style="font-size:.8rem;color:rgba(250,248,245,.4);text-align:center;line-height:1.6;">
+          Si necesitas cambiar tu cita, contáctame directamente a<br>
+          <strong style="color:var(--stone)">WhatsApp: [TU NÚMERO]</strong> o
+          <strong style="color:var(--stone)">[TU EMAIL]</strong>
+        </p>
+
+        <div class="modal-footer" style="justify-content:center;">
+          <button class="modal-next-btn" onclick="closeModal()">Cerrar</button>
+        </div>
+      </div>
+
+    </div><!-- /modal-body -->
+  </div><!-- /modal -->
+</div><!-- /modal-overlay -->
+
+<!-- Script principal externo -->
+<script src="app.js"></script>
+</body>
+</html>
