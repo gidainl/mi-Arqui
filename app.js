@@ -80,27 +80,27 @@ const TIME_SLOTS = [
  */
 const TESTIMONIALS = [
   {
-    name:     '[Nombre del Cliente 1]',
+    name:     'Interamericano U-1169',
     initials: 'C1',
-    project:  'Casa habitación — Residencial',
+    project:  'Escolar — educativos',
     rating:   5,
-    text:     '"[Reemplaza con el testimonio real. Mientras más específico mejor: menciona el problema que tenías, cómo te ayudé y el resultado que obtuviste.]"',
+    text:     '"Batallamos mucho con los arquitectos porque no conocian la normativa del IMSS y nos regresaron los planos muchas veces hasta que contratamos a @mi arqui-,hasta aumento la capacidad"',
     avatar:   '', // 'img/cliente-1.jpg'
   },
   {
-    name:     '[Nombre del Cliente 2]',
+    name:     'Armando Martinez A.',
     initials: 'C2',
     project:  'Supervisión de obra — Autoconstrucción',
     rating:   5,
-    text:     '"[Segundo testimonio de un proyecto diferente para mostrar versatilidad. Los mejores testimonios son específicos y auténticos.]"',
+    text:     '"Por querer ahorrar en la construccion de mi casa, los albañiles me robaron material y se tardaron mas de lo acordado. @mi arqui- me asesoro con todo esto. hoy ya vivo en mi propia casa y quedo muy chingona."',
     avatar:   '',
   },
   {
-    name:     '[Nombre del Cliente 3]',
+    name:     'CIQA Saltillo',
     initials: 'C3',
     project:  'Comercial',
-    rating:   5,
-    text:     '"[Tercer testimonio. Puedes copiar mensajes reales de WhatsApp o correo que te hayan enviado tus clientes.]"',
+    rating:   4,
+    text:     '"@mi arqui- remodelo nuestras oficinas administrativas y recientemente las oficinas del area contable y sistemas, gano por amplio puntaje las licitaciones, tienen mucha experiencia en ambos casos"',
     avatar:   '',
   },
 ];
