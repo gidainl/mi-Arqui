@@ -361,6 +361,26 @@ function goToStep(num, validate) {
     document.getElementById('conf_contact').textContent  =
       document.getElementById('cl_email').value
       + ' · ' + document.getElementById('cl_phone').value;
+
+      var stripeLinks = {
+  'Consultoría Técnica':            'https://buy.stripe.com/TU-LINK-CONSULTORIA',
+  'Supervisión de Obra':            'https://buy.stripe.com/TU-LINK-SUPERVISION',
+  'Diseño Residencial':             'https://buy.stripe.com/TU-LINK-RESIDENCIAL',
+  'Proyecto Industrial':            'https://buy.stripe.com/TU-LINK-INDUSTRIAL',
+  'Diseño Escolar':                 'https://buy.stripe.com/TU-LINK-ESCOLAR',
+  'Proyecto Residencial Completo':  'https://buy.stripe.com/TU-LINK-RESIDENCIAL',
+  'Proyecto Especializado':         'https://buy.stripe.com/TU-LINK-ESPECIALIZADO',
+  'Consulta Inicial':               'https://buy.stripe.com/TU-LINK-CONSULTORIA',
+  'Consulta Inicial Gratuita':      'https://buy.stripe.com/TU-LINK-CONSULTORIA',
+};
+
+// Mostrar botón de Stripe con el link correcto
+var payBtn  = document.getElementById('stripePayBtn');
+var payLink = document.getElementById('stripePayLink');
+if (payBtn && payLink && stripeLinks[selectedPlan]) {
+  payBtn.style.display = 'block';
+  payLink.href = stripeLinks[selectedPlan];
+}
   }
 
   // Mostrar / ocultar paneles y actualizar tabs

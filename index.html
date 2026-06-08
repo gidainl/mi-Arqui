@@ -464,9 +464,12 @@
           Supervisión continua
         </li>
       </ul>
-      <button class="plan-btn plan-btn-outline" onclick="openModal('Consultoría Técnica')">
-        Agendar Consulta
-      </button>
+      <a href="https://buy.stripe.com/14A28l5Lvgdp2jS5SE1gs01"
+   target="_blank"
+   class="plan-btn plan-btn-outline"
+   style="display:block;text-align:center;text-decoration:none;">
+  Agendar y Pagar
+</a>
     </div>
 
     <!-- ── Plan 2: Supervisión (DESTACADO) ── -->
@@ -508,9 +511,12 @@
           Proyecto arquitectónico
         </li>
       </ul>
-      <button class="plan-btn plan-btn-solid" onclick="openModal('Supervisión de Obra')">
-        Contratar Ahora
-      </button>
+      <a href="https://buy.stripe.com/fZu4gtfm56CPaQo0yk1gs00"
+        target="_blank"
+        class="plan-btn plan-btn-outline"
+        style="display:block;text-align:center;text-decoration:none;">
+          Agendar y Pagar
+      </a>
     </div>
 
     <!-- ── Plan 3: Proyecto Residencial Completo ── -->
@@ -553,9 +559,12 @@
           [3] revisiones de diseño
         </li>
       </ul>
-      <button class="plan-btn plan-btn-outline" onclick="openModal('Proyecto Residencial Completo')">
-        Solicitar Cotización
-      </button>
+      <a href="https://buy.stripe.com/bJe9AN2zj1ivbUsepa1gs02"
+        target="_blank"
+        class="plan-btn plan-btn-outline"
+        style="display:block;text-align:center;text-decoration:none;">
+            Agendar y Pagar
+      </a>
     </div>
 
     <!-- ── Plan 4: Proyecto Especializado Industrial / Escolar ── -->
@@ -595,9 +604,12 @@
           Atención personalizada
         </li>
       </ul>
-      <button class="plan-btn plan-btn-outline" onclick="openModal('Proyecto Especializado')">
-        Solicitar Cotización
-      </button>
+      <a href="https://buy.stripe.com/TU-LINK-CONSULTORIA"
+        target="_blank"
+        class="plan-btn plan-btn-outline"
+        style="display:block;text-align:center;text-decoration:none;">
+        Agendar y Pagar
+      </a>
     </div>
 
   </div><!-- /plans-grid -->
@@ -941,6 +953,21 @@
         </p>
 
         <div class="modal-footer" style="justify-content:center;">
+
+        <div id="stripePayBtn" style="display:none;text-align:center;margin-bottom:16px;">
+        <p style="font-size:.8rem;color:rgba(15,14,13,.5);margin-bottom:10px;">
+             Para confirmar tu cita, realiza el pago del anticipo:
+        </p>
+        <a id="stripePayLink"
+            href="#"
+            target="_blank"
+            style="display:inline-block;background:#635bff;color:#fff;
+            font-family:'Sora',sans-serif;font-weight:700;
+            font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
+            padding:13px 28px;border-radius:8px;text-decoration:none;">
+           💳 Pagar con tarjeta (Stripe)
+        </a>
+        </div>
           <button class="modal-next-btn" onclick="closeModal()">Cerrar</button>
         </div>
       </div>
