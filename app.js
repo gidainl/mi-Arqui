@@ -31,8 +31,8 @@
  */
 const STATS = {
   proyectos: '+50',  // Número total de proyectos completados
-  anos:       '12',  // Años de experiencia profesional
-  clientes:  '+45',  // Clientes satisfechos
+  anos:       '17',  // Años de experiencia profesional
+  clientes:  '+51',  // Clientes satisfechos
 };
 
 /**
@@ -48,7 +48,7 @@ const STATS = {
  * Ejemplo actual: lunes a viernes.
  * Para agregar sábados: [1, 2, 3, 4, 5, 6]
  */
-const AVAILABLE_DAYS = [1, 2, 3, 4, 5];
+const AVAILABLE_DAYS = [1, 2, 3, 4, 5, 6];
 
 /**
  * Horarios disponibles por día.
@@ -85,7 +85,7 @@ const TESTIMONIALS = [
     project:  'Escolar — educativos',
     rating:   5,
     text:     '"Batallamos mucho con los arquitectos porque no conocian la normativa del IMSS y nos regresaron los planos muchas veces hasta que contratamos a @mi arqui-,hasta aumento la capacidad"',
-    avatar:   '', // 'img/cliente-1.jpg'
+    avatar:   '', 
   },
   {
     name:     'Armando Martinez A.',
@@ -357,7 +357,7 @@ function goToStep(num, validate) {
       document.getElementById('cl_name').value;
     document.getElementById('conf_service').textContent  = selectedPlan;
     document.getElementById('conf_datetime').textContent =
-      selectedDate + ' · ' + selectedTime;
+      selectedDate + 'a las ' + selectedTime;
     document.getElementById('conf_contact').textContent  =
       document.getElementById('cl_email').value
       + ' · ' + document.getElementById('cl_phone').value;
