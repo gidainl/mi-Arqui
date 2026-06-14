@@ -1,91 +1,38 @@
-
 /* ═══════════════════════════════════════════════════════════════
-   ARQ. [mi arquis] — app.js
-   Toda la lógica e interactividad de la página
-   ═══════════════════════════════════════════════════════════════
-
-   ÍNDICE:
-   1.  CONFIGURACIÓN  ← EDITAR AQUÍ TUS DATOS
-   2.  Navbar scroll
-   3.  Stats del hero
-   4.  Galería — filtro por categoría
-   5.  Star picker (selector de estrellas en reseñas)
-   6.  Testimonios — renderizado dinámico
-   7.  Submit de reseña
-   8.  Modal — abrir / cerrar
-   9.  Modal — navegación entre pasos
-   10. Calendario de citas
-   11. Slots de horario
-   12. Hamburger menu (mobile)
-   13. Scroll suave para anclas
+   ARQ. [mi arquis] — app.js  ·  versión corregida
 ═══════════════════════════════════════════════════════════════ */
 
 /* ─────────────────────────────────────────────────────────────
-   1. CONFIGURACIÓN
-   ★ EDITAR AQUÍ todos los datos que necesitas personalizar
+   1. CONFIGURACIÓN  ← EDITAR AQUÍ
 ───────────────────────────────────────────────────────────── */
 
-/**
- * Tus estadísticas para el hero.
- * Reemplaza los valores con los reales.
- */
 const STATS = {
-  proyectos: '+50',  // Número total de proyectos completados
-  anos:       '17',  // Años de experiencia profesional
-  clientes:  '+51',  // Clientes satisfechos
+  proyectos: '+50',
+  anos:       '17',
+  clientes:  '+51',
 };
 
-/**
- * Días de la semana disponibles para agendar citas.
- *   0 = Domingo
- *   1 = Lunes
- *   2 = Martes
- *   3 = Miércoles
- *   4 = Jueves
- *   5 = Viernes
- *   6 = Sábado
- *
- * Ejemplo actual: lunes a viernes.
- * Para agregar sábados: [1, 2, 3, 4, 5, 6]
- */
-const AVAILABLE_DAYS = [1, 2, 3, 4, 5, 6];
+const AVAILABLE_DAYS = [1, 2, 3, 4, 5, 6]; // Lun-Sáb
 
-/**
- * Horarios disponibles por día.
- * Cambia taken: true para bloquear un slot ya ocupado.
- * Puedes agregar o quitar slots libremente.
- */
 const TIME_SLOTS = [
   { time: '09:00', taken: false },
   { time: '10:00', taken: false },
   { time: '11:00', taken: false },
-  { time: '12:00', taken: true  }, // ← taken: true = no disponible
+  { time: '12:00', taken: true  },
   { time: '15:00', taken: false },
   { time: '16:00', taken: false },
   { time: '17:00', taken: false },
   { time: '18:00', taken: false },
 ];
 
-/**
- * Testimonios de tus clientes.
- * Agrega tantos objetos como quieras.
- * Cada objeto tiene:
- *   name     — nombre del cliente
- *   initials — 2 letras para el avatar (si no tienes foto)
- *   project  — tipo de proyecto
- *   rating   — calificación del 1 al 5
- *   text     — comentario (pon comillas "…" dentro del string)
- *   avatar   — (opcional) ruta a foto, ej: 'img/cliente-1.jpg'
- *              Si se omite, se usan las iniciales.
- */
 const TESTIMONIALS = [
   {
     name:     'Interamericano U-1169',
     initials: 'C1',
     project:  'Escolar — educativos',
     rating:   5,
-    text:     '"Batallamos mucho con los arquitectos porque no conocian la normativa del IMSS y nos regresaron los planos muchas veces hasta que contratamos a @mi arqui-,hasta aumento la capacidad"',
-    avatar:   '', 
+    text:     '"Batallamos mucho con los arquitectos porque no conocian la normativa del IMSS y nos regresaron los planos muchas veces hasta que contratamos a @mi arqui-, hasta aumento la capacidad"',
+    avatar:   '',
   },
   {
     name:     'Armando Martinez A.',
@@ -105,52 +52,65 @@ const TESTIMONIALS = [
   },
 ];
 
+/* 
+  PLANES QUE REQUIEREN PAGO ANTES DE AGENDAR CITA.
+  Estos abren Stripe directamente; el resto pasa por el flujo normal.
+*/
+const PLANES_PAGO_PRIMERO = {
+  'Consultoría Técnica': 'https://buy.stripe.com/14A28l5Lvgdp2jS5SE1gs01',
+  'Supervisión de Obra': 'https://buy.stripe.com/fZu4gtfm56CPaQo0yk1gs00',
+};
+
+/*
+  PLANES QUE VAN A STRIPE DESPUÉS DE AGENDAR (al confirmar en paso 3).
+  Los demás solo muestran WhatsApp.
+*/
+const PLANES_STRIPE_DESPUES = {
+  'Proyecto Residencial Completo': 'https://buy.stripe.com/bJe9AN2zj1ivbUsepa1gs02',
+  'Proyecto Comercial':            'https://buy.stripe.com/bJe9AN2zj1ivbUsepa1gs02',
+  'Diseño Escolar':                'https://buy.stripe.com/bJe9AN2zj1ivbUsepa1gs02',
+  'Diseño Residencial':            'https://buy.stripe.com/bJe9AN2zj1ivbUsepa1gs02',
+};
+
+const TU_WHATSAPP = '528186052831';
+
 /* ─────────────────────────────────────────────────────────────
-   NO EDITAR DESDE AQUÍ — Lógica de la aplicación
+   NO EDITAR DESDE AQUÍ
 ───────────────────────────────────────────────────────────── */
 
-// ── 2. NAVBAR — cambiar estilo al hacer scroll ─────────────────
+// ── 2. NAVBAR ────────────────────────────────────────────────
 window.addEventListener('scroll', function () {
   document.getElementById('navbar')
     .classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-// ── 3. STATS DEL HERO ──────────────────────────────────────────
+// ── 3. STATS ─────────────────────────────────────────────────
 document.getElementById('stat-proyectos').textContent = STATS.proyectos;
 document.getElementById('stat-anos').textContent      = STATS.anos;
 document.getElementById('stat-clientes').textContent  = STATS.clientes;
 
-// ── 4. GALERÍA — FILTRO POR CATEGORÍA ──────────────────────────
+// ── 4. GALERÍA FILTRO ────────────────────────────────────────
 document.querySelectorAll('.gf-btn').forEach(function (btn) {
   btn.addEventListener('click', function () {
-    // Activar solo el botón clicado
-    document.querySelectorAll('.gf-btn').forEach(function (b) {
-      b.classList.remove('active');
-    });
+    document.querySelectorAll('.gf-btn').forEach(function (b) { b.classList.remove('active'); });
     btn.classList.add('active');
-
     var filter = btn.dataset.filter;
-
     document.querySelectorAll('.gallery-item').forEach(function (item) {
       var show = filter === 'all' || item.dataset.category === filter;
-      item.style.display    = show ? 'block' : 'none';
-      item.style.animation  = show ? 'fadeUp .4s ease' : '';
+      item.style.display   = show ? 'block' : 'none';
+      item.style.animation = show ? 'fadeUp .4s ease' : '';
     });
   });
 });
 
-// ── 5. STAR PICKER (selector de estrellas para reseñas) ────────
+// ── 5. STAR PICKER ───────────────────────────────────────────
 var selectedRating = 0;
 
 document.querySelectorAll('#starPicker svg').forEach(function (star) {
-
-  // Click: fijar la calificación
   star.addEventListener('click', function () {
     selectedRating = parseInt(star.dataset.val);
     updateStarPicker(selectedRating, true);
   });
-
-  // Hover: vista previa
   star.addEventListener('mouseenter', function () {
     var val = parseInt(star.dataset.val);
     document.querySelectorAll('#starPicker svg').forEach(function (s, i) {
@@ -158,8 +118,6 @@ document.querySelectorAll('#starPicker svg').forEach(function (star) {
       s.style.stroke = i < val ? 'var(--stone)' : 'var(--stone-d)';
     });
   });
-
-  // Mouse leave: restaurar al valor fijado
   star.addEventListener('mouseleave', function () {
     updateStarPicker(selectedRating, false);
   });
@@ -176,30 +134,22 @@ function updateStarPicker(rating, useClass) {
   });
 }
 
-// ── 6. TESTIMONIOS — RENDERIZADO ───────────────────────────────
+// ── 6. TESTIMONIOS ───────────────────────────────────────────
 function renderTestimonials() {
   var grid = document.getElementById('testimonialsGrid');
   if (!grid) return;
-
   if (TESTIMONIALS.length === 0) {
     grid.innerHTML = '<p style="color:var(--muted);font-size:.9rem;padding:20px 0;">Aún no hay reseñas publicadas.</p>';
     return;
   }
-
   grid.innerHTML = TESTIMONIALS.map(function (t) {
-    // Generar estrellas
     var stars = Array.from({ length: 5 }, function (_, i) {
       return '<svg viewBox="0 0 24 24" class="' + (i < t.rating ? '' : 'empty') + '">'
         + '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 '
         + '12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
     }).join('');
-
-    // Avatar: foto o iniciales
-    var avatarStyle = t.avatar
-      ? 'background:url("' + t.avatar + '") center/cover no-repeat;'
-      : '';
+    var avatarStyle   = t.avatar ? 'background:url("' + t.avatar + '") center/cover no-repeat;' : '';
     var avatarContent = t.avatar ? '' : t.initials;
-
     return [
       '<div class="testimonial-card">',
         '<div class="tc-stars">' + stars + '</div>',
@@ -215,98 +165,96 @@ function renderTestimonials() {
     ].join('');
   }).join('');
 
-  // Actualizar contador y promedio
-  var avg = TESTIMONIALS.reduce(function (sum, t) {
-    return sum + t.rating;
-  }, 0) / TESTIMONIALS.length;
-
+  var avg     = TESTIMONIALS.reduce(function (s, t) { return s + t.rating; }, 0) / TESTIMONIALS.length;
   var avgEl   = document.getElementById('avgRating');
   var totalEl = document.getElementById('totalReviews');
   if (avgEl)   avgEl.textContent   = avg.toFixed(1);
-  if (totalEl) totalEl.textContent = 'Basado en ' + TESTIMONIALS.length
-    + ' reseña' + (TESTIMONIALS.length !== 1 ? 's' : '');
+  if (totalEl) totalEl.textContent = 'Basado en ' + TESTIMONIALS.length + ' reseña' + (TESTIMONIALS.length !== 1 ? 's' : '');
 }
-
-// Renderizar al cargar
 renderTestimonials();
 
-// ── 7. SUBMIT DE RESEÑA ────────────────────────────────────────
+// ── 7. SUBMIT RESEÑA ─────────────────────────────────────────
 function submitReview() {
   var name    = document.getElementById('rev_name').value.trim();
   var text    = document.getElementById('rev_text').value.trim();
-  var project = document.getElementById('rev_project').value
-                || 'Servicio arquitectónico';
-
+  var project = document.getElementById('rev_project').value || 'Servicio arquitectónico';
   if (!name || !text || selectedRating === 0) {
     alert('Por favor ingresa tu nombre, calificación (estrellas) y comentario.');
     return;
   }
-
-  // Agregar al principio del array para que aparezca primero
   TESTIMONIALS.unshift({
     name:     name,
-    initials: name.split(' ').map(function (w) {
-      return w[0];
-    }).join('').substring(0, 2).toUpperCase(),
+    initials: name.split(' ').map(function (w) { return w[0]; }).join('').substring(0, 2).toUpperCase(),
     project:  project,
     rating:   selectedRating,
     text:     '"' + text + '"',
     avatar:   '',
   });
-
-  // Re-renderizar
   renderTestimonials();
-
-  // Limpiar formulario
-  document.getElementById('rev_name').value     = '';
-  document.getElementById('rev_text').value     = '';
-  document.getElementById('rev_project').value  = '';
+  document.getElementById('rev_name').value    = '';
+  document.getElementById('rev_text').value    = '';
+  document.getElementById('rev_project').value = '';
   selectedRating = 0;
   document.querySelectorAll('#starPicker svg').forEach(function (s) {
     s.classList.remove('active');
     s.style.fill   = 'none';
     s.style.stroke = 'var(--stone-d)';
   });
-
-  // Mensaje de éxito
   var msg = document.getElementById('reviewSuccess');
-  if (msg) {
-    msg.style.display = 'block';
-    setTimeout(function () { msg.style.display = 'none'; }, 4000);
-  }
-
-  // Scroll suave hacia la sección de testimonios
-  document.getElementById('testimonialsGrid')
-    .scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (msg) { msg.style.display = 'block'; setTimeout(function () { msg.style.display = 'none'; }, 4000); }
+  document.getElementById('testimonialsGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ── 8. MODAL — ABRIR / CERRAR ──────────────────────────────────
+/* ═══════════════════════════════════════════════════════════
+   8. MODAL — APERTURA CON LÓGICA PAGO-PRIMERO / CITA-PRIMERO
+═══════════════════════════════════════════════════════════ */
 var selectedPlan = '';
 
-/**
- * openModal(planName)
- * Se llama desde onclick en los botones de planes y servicios.
- * @param {string} planName — nombre del servicio/plan seleccionado
- */
 function openModal(planName) {
   selectedPlan = planName;
+
+  /*
+    ¿Este plan requiere pagar ANTES de agendar?
+    Si sí → abrir Stripe directamente, sin modal de cita.
+  */
+  if (PLANES_PAGO_PRIMERO[planName]) {
+    var confirmPago = confirm(
+      '💳 ' + planName + '\n\n' +
+      'Este servicio requiere el pago del anticipo para confirmar tu cita.\n' +
+      'Serás redirigido a la pasarela de pago segura.\n\n' +
+      '¿Continuar al pago?'
+    );
+    if (confirmPago) {
+      window.open(PLANES_PAGO_PRIMERO[planName], '_blank');
+    }
+    return; // No abrir el modal de citas
+  }
+
+  /* ─── Flujo normal: primero datos → fecha → confirmar ─── */
   document.getElementById('modalPlanTag').textContent = 'Servicio seleccionado';
   document.getElementById('modalTitle').textContent   = planName;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 
-  // Resetear al paso 1 sin validar
-  goToStep(1, false);
+  // Resetear estado
   selectedDate = null;
   selectedTime = null;
-  buildCalendar();
-  buildTimeSlots();
-  document.getElementById('bookingSummary').classList.remove('show');
-  var confirmBtn = document.getElementById('confirmDateBtn');
-  if (confirmBtn) {
-    confirmBtn.style.opacity       = '.4';
-    confirmBtn.style.pointerEvents = 'none';
-  }
+
+  // Ocultar botón WhatsApp y Stripe hasta paso 3
+  var waBtn = document.getElementById('whatsappConfirmBtn');
+  if (waBtn) waBtn.style.display = 'none';
+  var payBtn = document.getElementById('stripePayBtn');
+  if (payBtn) payBtn.style.display = 'none';
+
+  // Ir al paso 1 sin validar
+  _showStep(1);
+
+  // Limpiar resumen
+  var summary = document.getElementById('bookingSummary');
+  if (summary) summary.classList.remove('show');
+
+  // Deshabilitar botón confirmar
+  _setConfirmBtn(false);
 }
 
 function closeModal() {
@@ -314,89 +262,123 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// Cerrar al hacer clic fuera del modal
 document.getElementById('modalOverlay').addEventListener('click', function (e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModal();
+  if (e.target === this) closeModal();
 });
-
-// Cerrar con la tecla Escape
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeModal();
 });
 
-// ── 9. MODAL — NAVEGACIÓN ENTRE PASOS ─────────────────────────
+/* ═══════════════════════════════════════════════════════════
+   9. NAVEGACIÓN ENTRE PASOS — reescrita y limpia
+═══════════════════════════════════════════════════════════ */
+
 /**
- * goToStep(num, validate)
- * @param {number}  num      — paso destino (1, 2 o 3)
- * @param {boolean} validate — si true, valida el paso actual antes de avanzar
+ * _showStep(num) — muestra el panel sin validar (uso interno)
  */
-function goToStep(num, validate) {
-  if (validate === undefined) validate = true;
-
-  // Validación paso 1 → 2
-  if (validate && num === 2) {
-    var name  = document.getElementById('cl_name').value.trim();
-    var phone = document.getElementById('cl_phone').value.trim();
-    var email = document.getElementById('cl_email').value.trim();
-    var desc  = document.getElementById('cl_desc').value.trim();
-
-    if (!name || !phone || !email || !desc) {
-      alert('Por favor completa: nombre completo, teléfono, email y descripción del proyecto.');
-      return;
-    }
-  }
-
-  // Validación paso 2 → 3
-  if (validate && num === 3) {
-    if (!selectedDate || !selectedTime) {
-      alert('Por favor selecciona una fecha y un horario disponible.');
-      return;
-    }
-    // Llenar los datos de confirmación
-    document.getElementById('conf_name').textContent =
-      document.getElementById('cl_name').value;
-    document.getElementById('conf_service').textContent  = selectedPlan;
-    document.getElementById('conf_datetime').textContent =
-      selectedDate + 'a las ' + selectedTime;
-    document.getElementById('conf_contact').textContent  =
-      document.getElementById('cl_email').value
-      + ' · ' + document.getElementById('cl_phone').value;
-
-      var stripeLinks = {
-  'Consultoría Técnica':            'https://buy.stripe.com/TU-LINK-CONSULTORIA',
-  'Supervisión de Obra':            'https://buy.stripe.com/TU-LINK-SUPERVISION',
-  'Diseño Residencial':             'https://buy.stripe.com/TU-LINK-RESIDENCIAL',
-  'Proyecto Industrial':            'https://buy.stripe.com/TU-LINK-INDUSTRIAL',
-  'Diseño Escolar':                 'https://buy.stripe.com/TU-LINK-ESCOLAR',
-  'Proyecto Residencial Completo':  'https://buy.stripe.com/TU-LINK-RESIDENCIAL',
-  'Proyecto Especializado':         'https://buy.stripe.com/TU-LINK-ESPECIALIZADO',
-  'Consulta Inicial':               'https://buy.stripe.com/TU-LINK-CONSULTORIA',
-  'Consulta Inicial Gratuita':      'https://buy.stripe.com/TU-LINK-CONSULTORIA',
-};
-
-// Mostrar botón de Stripe con el link correcto
-var payBtn  = document.getElementById('stripePayBtn');
-var payLink = document.getElementById('stripePayLink');
-if (payBtn && payLink && stripeLinks[selectedPlan]) {
-  payBtn.style.display = 'block';
-  payLink.href = stripeLinks[selectedPlan];
-}
-  }
-
-  // Mostrar / ocultar paneles y actualizar tabs
+function _showStep(num) {
   [1, 2, 3].forEach(function (i) {
     var panel = document.getElementById('step-' + i);
     var tab   = document.getElementById('step-tab-' + i);
     if (panel) panel.classList.toggle('active', i === num);
     if (tab) {
       tab.classList.remove('active', 'done');
-      if (i === num)  tab.classList.add('active');
-      if (i < num)    tab.classList.add('done');
+      if (i === num) tab.classList.add('active');
+      if (i < num)   tab.classList.add('done');
     }
   });
+
+  // Construir calendario DESPUÉS de que el panel sea visible en el DOM
+  if (num === 2) {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        buildCalendar();
+        buildTimeSlots();
+      });
+    });
+  }
 }
 
-// ── 10. CALENDARIO ─────────────────────────────────────────────
+/**
+ * goToStep(num, validate) — llamado desde botones del modal
+ */
+function goToStep(num, validate) {
+  if (validate === undefined) validate = true;
+
+  /* ── Validación paso 1 → 2 ── */
+  if (validate && num === 2) {
+    var name  = (document.getElementById('cl_name')  || {}).value || '';
+    var phone = (document.getElementById('cl_phone') || {}).value || '';
+    var email = (document.getElementById('cl_email') || {}).value || '';
+    var desc  = (document.getElementById('cl_desc')  || {}).value || '';
+    if (!name.trim() || !phone.trim() || !email.trim() || !desc.trim()) {
+      alert('Por favor completa: nombre completo, teléfono, email y descripción del proyecto.');
+      return;
+    }
+  }
+
+  /* ── Validación paso 2 → 3 ── */
+  if (validate && num === 3) {
+    if (!selectedDate || !selectedTime) {
+      alert('Por favor selecciona una fecha y un horario disponible.');
+      return;
+    }
+    _prepareConfirmacion();
+  }
+
+  _showStep(num);
+}
+
+/**
+ * _prepareConfirmacion() — llena el paso 3 con los datos del cliente
+ */
+function _prepareConfirmacion() {
+  var name     = document.getElementById('cl_name').value;
+  var phone    = document.getElementById('cl_phone').value;
+  var email    = document.getElementById('cl_email').value;
+  var desc     = document.getElementById('cl_desc').value;
+  var datetime = selectedDate + ' a las ' + selectedTime;
+
+  // Rellenar resumen visual
+  document.getElementById('conf_name').textContent     = name;
+  document.getElementById('conf_service').textContent  = selectedPlan;
+  document.getElementById('conf_datetime').textContent = datetime;
+  document.getElementById('conf_contact').textContent  = email + ' · ' + phone;
+
+  /* ── Botón WhatsApp ── */
+  var mensaje =
+    '🏛️ *Nueva solicitud de cita — Mi Arqui*\n\n' +
+    '👤 *Cliente:* '     + name        + '\n' +
+    '📋 *Servicio:* '    + selectedPlan + '\n' +
+    '📅 *Fecha y hora:* '+ datetime    + '\n' +
+    '📞 *Teléfono:* '    + phone       + '\n' +
+    '📧 *Email:* '       + email       + '\n' +
+    '📝 *Proyecto:* '    + desc;
+
+  var waURL = 'https://wa.me/' + TU_WHATSAPP + '?text=' + encodeURIComponent(mensaje);
+  var waBtn = document.getElementById('whatsappConfirmBtn');
+  if (waBtn) {
+    waBtn.href          = waURL;
+    waBtn.style.display = 'inline-flex';
+  }
+
+  /* ── Botón Stripe (solo para planes que pagan después) ── */
+  var payBtn  = document.getElementById('stripePayBtn');
+  var payLink = document.getElementById('stripePayLink');
+  if (payBtn && payLink) {
+    var stripeURL = PLANES_STRIPE_DESPUES[selectedPlan];
+    if (stripeURL) {
+      payBtn.style.display = 'block';
+      payLink.href = stripeURL;
+    } else {
+      payBtn.style.display = 'none';
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   10. CALENDARIO
+═══════════════════════════════════════════════════════════ */
 var currentDate  = new Date();
 var selectedDate = null;
 var selectedTime = null;
@@ -407,28 +389,33 @@ var MONTHS_ES = [
 ];
 
 function changeMonth(delta) {
-  currentDate.setMonth(currentDate.getMonth() + delta);
+  // No retroceder antes del mes actual
+  var next = new Date(currentDate.getFullYear(), currentDate.getMonth() + delta, 1);
+  var now  = new Date();
+  if (next < new Date(now.getFullYear(), now.getMonth(), 1)) return;
+  currentDate = next;
   buildCalendar();
 }
 
 function buildCalendar() {
-  var year       = currentDate.getFullYear();
-  var month      = currentDate.getMonth();
-  var firstDay   = new Date(year, month, 1).getDay();
-  var daysInMon  = new Date(year, month + 1, 0).getDate();
-  var today      = new Date();
+  var grid = document.getElementById('calGrid');
+  if (!grid) return;
+
+  var year      = currentDate.getFullYear();
+  var month     = currentDate.getMonth();
+  var firstDay  = new Date(year, month, 1).getDay();
+  var daysInMon = new Date(year, month + 1, 0).getDate();
+  var today     = new Date();
   today.setHours(0, 0, 0, 0);
 
   var monthEl = document.getElementById('calMonth');
   if (monthEl) monthEl.textContent = MONTHS_ES[month] + ' ' + year;
 
-  var grid = document.getElementById('calGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
+  var html = '';
 
-  // Días vacíos al inicio del mes
+  // Celdas vacías antes del primer día
   for (var e = 0; e < firstDay; e++) {
-    grid.innerHTML += '<div class="cal-day empty"></div>';
+    html += '<div class="cal-day empty"></div>';
   }
 
   for (var d = 1; d <= daysInMon; d++) {
@@ -437,96 +424,105 @@ function buildCalendar() {
     var isPast  = date < today;
     var isToday = date.getTime() === today.getTime();
     var isAvail = !isPast && AVAILABLE_DAYS.indexOf(dow) !== -1;
-    var dateStr = d + ' ' + MONTHS_ES[month] + ' ' + year;
-    var isSel   = selectedDate === dateStr;
+    var dateStr = d + ' de ' + MONTHS_ES[month] + ' ' + year;
+    var isSel   = (selectedDate === dateStr);
 
     var cls = 'cal-day';
-    if (isPast)    cls += ' past';
-    if (isToday)   cls += ' today';
-    if (isAvail)   cls += ' available';
-    if (isSel)     cls += ' selected';
+    if (isPast)  cls += ' past';
+    if (isToday) cls += ' today';
+    if (isAvail) cls += ' available';
+    if (isSel)   cls += ' selected';
 
-    var onclick = isAvail
-      ? 'selectDate("' + dateStr + '")'
-      : '';
-
-    grid.innerHTML += '<div class="' + cls + '" onclick="' + onclick + '">' + d + '</div>';
+    if (isAvail) {
+      html += '<div class="' + cls + '" onclick="selectDate(\'' + dateStr + '\')">' + d + '</div>';
+    } else {
+      html += '<div class="' + cls + '">' + d + '</div>';
+    }
   }
+
+  grid.innerHTML = html;
 }
 
+/* ── selectDate: el click en un día del calendario ── */
 function selectDate(dateStr) {
   selectedDate = dateStr;
-  selectedTime = null; // resetear hora al cambiar fecha
+  selectedTime = null;         // resetear hora al cambiar fecha
+  _setConfirmBtn(false);       // deshabilitar hasta que elija hora
   buildCalendar();
   buildTimeSlots();
-  updateBookingSummary();
-
-  // Activar botón de confirmar (aún necesita también hora)
-  if (selectedTime) enableConfirmBtn();
+  _hideSummary();
 }
 
-// ── 11. SLOTS DE HORARIO ───────────────────────────────────────
+/* ═══════════════════════════════════════════════════════════
+   11. HORARIOS
+═══════════════════════════════════════════════════════════ */
 function buildTimeSlots() {
   var grid = document.getElementById('timeslotsGrid');
   if (!grid) return;
 
   grid.innerHTML = TIME_SLOTS.map(function (slot) {
     var cls = 'ts-slot';
-    if (slot.taken)                      cls += ' taken';
-    else if (selectedTime === slot.time) cls += ' available selected';
-    else                                 cls += ' available';
-
-    var onclick = slot.taken ? '' : 'selectTime("' + slot.time + '")';
-    return '<div class="' + cls + '" onclick="' + onclick + '">' + slot.time + '</div>';
+    if (slot.taken) {
+      cls += ' taken';
+      return '<div class="' + cls + '">' + slot.time + '</div>';
+    }
+    if (selectedTime === slot.time) cls += ' available selected';
+    else cls += ' available';
+    return '<div class="' + cls + '" onclick="selectTime(\'' + slot.time + '\')">' + slot.time + '</div>';
   }).join('');
 }
 
 function selectTime(time) {
+  if (!selectedDate) {
+    alert('Primero selecciona una fecha en el calendario.');
+    return;
+  }
   selectedTime = time;
   buildTimeSlots();
-  updateBookingSummary();
-  enableConfirmBtn();
+  _showSummary();
+  _setConfirmBtn(true);  // habilitar botón confirmar
 }
 
-function enableConfirmBtn() {
+/* ── Helpers internos ── */
+function _setConfirmBtn(enabled) {
   var btn = document.getElementById('confirmDateBtn');
-  if (btn && selectedDate && selectedTime) {
-    btn.style.opacity       = '1';
-    btn.style.pointerEvents = 'all';
-  }
+  if (!btn) return;
+  btn.style.opacity       = enabled ? '1' : '.4';
+  btn.style.pointerEvents = enabled ? 'all' : 'none';
 }
 
-function updateBookingSummary() {
+function _showSummary() {
   var summary = document.getElementById('bookingSummary');
   if (!summary) return;
-
-  if (selectedDate && selectedTime) {
-    summary.classList.add('show');
-    var bsService = document.getElementById('bs_service');
-    var bsDate    = document.getElementById('bs_date');
-    var bsTime    = document.getElementById('bs_time');
-    if (bsService) bsService.textContent = selectedPlan || '—';
-    if (bsDate)    bsDate.textContent    = selectedDate;
-    if (bsTime)    bsTime.textContent    = selectedTime;
-  }
+  summary.classList.add('show');
+  var bsService = document.getElementById('bs_service');
+  var bsDate    = document.getElementById('bs_date');
+  var bsTime    = document.getElementById('bs_time');
+  if (bsService) bsService.textContent = selectedPlan || '—';
+  if (bsDate)    bsDate.textContent    = selectedDate  || '—';
+  if (bsTime)    bsTime.textContent    = selectedTime  || '—';
 }
 
-// Construir calendario al cargar
+function _hideSummary() {
+  var summary = document.getElementById('bookingSummary');
+  if (summary) summary.classList.remove('show');
+}
+
+// Inicializar calendario al cargar (para que funcione si el modal ya existe)
 buildCalendar();
 buildTimeSlots();
 
-// ── 12. HAMBURGER MENU (mobile) ────────────────────────────────
+/* ═══════════════════════════════════════════════════════════
+   12. HAMBURGER MENU (mobile)
+═══════════════════════════════════════════════════════════ */
 var hamburger = document.getElementById('hamburger');
 if (hamburger) {
   hamburger.addEventListener('click', function () {
     var navLinks = document.querySelector('.nav-links');
     var isOpen   = navLinks.style.display === 'flex';
-
     if (isOpen) {
-      // Cerrar
       navLinks.style.display = 'none';
     } else {
-      // Abrir como menú vertical sobre la página
       Object.assign(navLinks.style, {
         display:       'flex',
         flexDirection: 'column',
@@ -540,18 +536,16 @@ if (hamburger) {
         zIndex:        '99',
         gap:           '18px',
       });
-
-      // Cerrar el menú al hacer clic en cualquier enlace
       navLinks.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          navLinks.style.display = 'none';
-        }, { once: true });
+        a.addEventListener('click', function () { navLinks.style.display = 'none'; }, { once: true });
       });
     }
   });
 }
 
-// ── 13. SCROLL SUAVE PARA ANCLAS ───────────────────────────────
+/* ═══════════════════════════════════════════════════════════
+   13. SCROLL SUAVE
+═══════════════════════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(function (a) {
   a.addEventListener('click', function (e) {
     var id     = a.getAttribute('href');

@@ -236,8 +236,8 @@ a { text-decoration: none; color: inherit; }
   display: inline-block;
 }
 .btn-ghost:hover { border-color: var(--stone-l); color: var(--white); }
-background: var(--stone-l);
-transform: translateY(-2px);
+background:var(--stone-l)
+transform:translateY(-2px)
 
 
 /* Stats del hero */
@@ -409,37 +409,40 @@ transform: translateY(-2px);
    6. GALERÍA DE OBRAS (6 fotos) - CORREGIDO Y INTEGRADO
    ========================================================================== */
 
-.gallery { 
+
+.gallery  {
 width: 120%;
-height: 350px;
+height: 320px;
 display: flex;
-justify-content: center;
-align-items: center;
+justify-content:center;
+align-items:center;
 background-color: transparent;
-gap: 15px;
-margin-bottom: 40px;
+padding-bottom: 40px;
+margin: 10px;
 
 }
 
-.gallery img{
+#obras .gallery img{
 
-    width: 10%;
+    width: 5%;
     height: 100%;
     object-fit: fill;
     border-radius: 10px;
     border: 2px solid #fff;
     transition: all ease-in-out 0.5s;
+    padding-bottom: 40px;
+    background-color: transparent;
 }
 
-.gallery img:hover {
-width: 70%;
+#obras .gallery img:hover {
+  
+width: 50%;
 padding: 15px;
-
 
 }
 
    .gallery-section { 
-  background: var(--dark-2); 
+  background: var(--dark); 
   padding: 70px 60px 160px; 
   margin-bottom: 80px;
 }
@@ -743,9 +746,9 @@ padding: 15px;
 /* ─────────────────────────────────────────────────────────────
    8. PLANES / MEMBRESÍAS (4 módulos)
 ───────────────────────────────────────────────────────────── */
-.plans-section { background: var(--dark-2); padding: 100px 60px; }
+.plans-section { background: var(--dark); padding: 50px 60px; }
 
-.plans-intro { text-align: center; margin-bottom: 64px; }
+.plans-intro { text-align: center; margin-bottom: 34px; }
 .plans-intro .section-lead { margin: 0 auto; }
 .plans-intro .section-divider { margin: 24px auto 0; }
 
@@ -1151,7 +1154,7 @@ padding: 15px;
 /* ─────────────────────────────────────────────────────────────
    11. PROCESO DE TRABAJO
 ───────────────────────────────────────────────────────────── */
-.process-section { background: var(--dark-3); padding: 100px 60px; }
+.process-section { background: var(--dark); padding: 100px 60px; }
 .process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1190,7 +1193,7 @@ padding: 15px;
 /* ─────────────────────────────────────────────────────────────
    12. TESTIMONIOS
 ───────────────────────────────────────────────────────────── */
-.testimonials-section { background: var(--dark-2); padding: 100px 60px; }
+.testimonials-section { background: var(--dark); padding: 100px 60px; }
 .testimonials-header {
   display: flex; align-items: flex-end;
   justify-content: space-between;
@@ -1279,7 +1282,7 @@ padding: 15px;
    13. CTA FINAL / FOOTER
 ───────────────────────────────────────────────────────────── */
 .cta-final {
-  background: var(--dark-3);
+  background: var(--dark);
   padding: 100px 60px;
   text-align: center;
   position: relative;
@@ -1354,4 +1357,31 @@ padding: 15px;
   .form-grid                    { grid-template-columns: 1fr; }
   .timeslots-grid               { grid-template-columns: repeat(3, 1fr); }
   .process-grid                 { grid-template-columns: 1fr; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   FONDO UNIFICADO — override global
+───────────────────────────────────────────────────────────── */
+.video-section,
+.gallery-section,
+.gallery,
+.services-section,
+.guarderias-section,
+.plans-section,
+.process-section,
+.testimonials-section,
+.cta-final,
+.footer,
+.leave-review,
+.plan-card,
+.testimonial-card,
+.service-card,
+.guarderias-card {
+  background: var(--dark) !important;
+}
+
+/* Quitar gradiente del CTA para que no rompa el fondo */
+.cta-final::before {
+  display: none;
 }

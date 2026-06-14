@@ -1,13 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ══════════════════════════════════════════════════════════
-    EDITAR: Cambia [TU NOMBRE] y [TU CIUDAD] en el título
-  ══════════════════════════════════════════════════════════ -->
   <title>Mi Arqui — Arquitectura, Construccion y Diseños de Infraestructura</title>
   <meta name="description" content="Constructores de obra civil, supervisión y diseño de infraestructura educativa, residencial y comercial bajo normativas oficiales.">
 
@@ -15,7 +10,6 @@
   <meta property="og:url" content="https://gidainl.github.io/mi-Arqui/">
   <meta property="og:title" content="Mi Arqui — Arquitectura y obra civil">
   <meta property="og:description" content="Diseños y construcciones, residencial, comercial, escolar y supervisión de autoconstrucción. Conoce nuestro portafolio de proyectos.">
-  
   <meta property="og:image" content="https://gidainl.github.io/mi-Arqui/imagenes/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -26,34 +20,202 @@
   <meta name="twitter:description" content="Diseño residencial, comercial, escolar y supervisión de autoconstrucción.">
   <meta name="twitter:image" content="https://gidainl.github.io/mi-Arqui/imagenes/og-image.jpg">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Hoja de estilos externa -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ══════════════════════════════════════════════
+       CORRECCIONES DE CENTRADO Y FONDOS
+    ══════════════════════════════════════════════ */
+
+    /* --- Galería de planos (curriculum) --- */
+    .curriculum-block {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+      text-align: center;
+    }
+    .curriculum-block .section-eyebrow {
+      justify-content: center;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 32px;
+    }
+    .gallery img {
+      width: calc(20% - 16px);
+      min-width: 140px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* --- Galería de obras (portafolio) --- */
+    .gallery-section {
+      background: var(--bg, #0f0e0d);
+    }
+    .gallery-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .gallery-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery-item:first-child {
+      grid-column: span 1; /* sin doble columna, grilla limpia de 3 */
+    }
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery img {
+        width: calc(33% - 12px);
+      }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery img {
+        width: 100%;
+      }
+    }
+
+    /* --- Guarderias section --- */
+    .guarderias-section {
+      background: var(--bg, #0f0e0d);
+      padding: 80px 24px;
+    }
+    .guarderias-intro {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .guarderias-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .guarderias-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .guarderias-intro {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .guarderias-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* --- Servicios section --- */
+    .services-section {
+      background: var(--bg, #0f0e0d);
+      padding: 80px 24px;
+    }
+    .services-intro {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 700px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-intro {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Asegurar que service-card y guarderias-card tengan fondo propio */
+    .service-card,
+    .guarderias-card {
+      background: rgba(200,184,154,.06);
+      border: 1px solid rgba(200,184,154,.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: border-color .25s, transform .2s;
+    }
+    .service-card:hover,
+    .guarderias-card:hover {
+      border-color: rgba(200,184,154,.35);
+      transform: translateY(-3px);
+    }
+
+    /* Badges de servicio */
+    .services-badges {
+      margin-top: 24px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      color: var(--stone-l, #c8b89a);
+    }
+
+    /* Gallery CTA */
+    .gallery-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
 <!-- ════════════════════════════════════════════════════════════
   NAVIGATION
-  ── Editar: [TU NOMBRE] en .nav-logo
 ════════════════════════════════════════════════════════════ -->
 <nav class="nav" id="navbar">
   <a class="nav-logo" href="#inicio">
     <span>Mi ARQUI.</span> on line
   </a>
-
   <ul class="nav-links">
-    
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#guarderias">Guarderias</a></li>    
-    <li><a href="#planes">Planes</a></li> 
-    <li><a href="#obras">Portafolio</a></li>   
-    
+    <li><a href="#guarderias">Guarderias</a></li>
+    <li><a href="#planes">Planes</a></li>
+    <li><a href="#obras">Portafolio</a></li>
   </ul>
-
   <button class="nav-cta" onclick="openModal('Consulta Inicial')">Agendar Cita</button>
-
   <div class="nav-hamburger" id="hamburger">
     <span></span><span></span><span></span>
   </div>
@@ -61,33 +223,26 @@
 
 <!-- ════════════════════════════════════════════════════════════
   HERO
-  ── Para agregar foto de fondo edita .hero-bg en estilos.css
 ════════════════════════════════════════════════════════════ -->
 <section class="hero" id="inicio">
   <div class="hero-bg"></div>
   <div class="hero-content">
-
     <div class="hero-eyebrow">Asesoria · Diseño · Supervisión</div>
-
-    <!-- EDITAR: el h1 es tu propuesta de valor principal -->
     <h1 class="hero-title">
       Asesoramos<br>
       <em>Diseñamos</em><br>
       Construimos
     </h1>
-
     <p class="hero-subtitle">
-      Los servicios de nuestros arquitectos o ingenieros arquitectos o ingenieros a tu disposicion con un solo click de distancia, sin papeleos, sin complicaciones y adecuados a tu presupuesto.
+      Los servicios de nuestros arquitectos o ingenieros a tu disposicion con un solo click de distancia,
+      sin papeleos, sin complicaciones y adecuados a tu presupuesto.
     </p>
-
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
         Ver Planes de Servicio
       </button>
       <a class="btn-ghost" href="#obras">Ver Portafolio</a>
     </div>
-
-    <!-- Stats — los números se llenan desde app.js (STATS object) -->
     <div class="hero-stats">
       <div class="hs-item">
         <span class="hs-num" id="stat-proyectos">+00</span>
@@ -106,247 +261,236 @@
         <span class="hs-lbl">Mercados</span>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
   VIDEO CENTRAL
-  ── Para insertar tu video real, ve a la línea del iframe
-     comentado y descoméntala con tu ID de YouTube/Vimeo.
-     Luego borra el div .video-placeholder completo.
 ════════════════════════════════════════════════════════════ -->
 <section class="video-section" id="video">
   <div class="video-wrapper">
-
     <div style="max-width:480px; margin-bottom:40px;">
       <div class="section-eyebrow">Showreel</div>
       <h2 class="section-title">Nuestro <em>equipo</em><br>en accion...</h2>
       <div class="section-divider"></div>
       <p class="section-lead">
-        Recorrido por uno de nuestros proyectos más desafiantes: una guarderia del IMSS con 4 niveles en 2 predios diferentes.      
+        Recorrido por uno de nuestros proyectos más desafiantes: una guarderia del IMSS con 4 niveles en 2 predios diferentes.
       </p>
     </div>
-
     <div class="video-container" id="videoContainer">
-      <!-- Cambiado /shorts/ por /embed/ para que el navegador permita la reproducción -->
-      <iframe src="https://youtube.com/embed/loGWJtZq9QY?feature=share" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen 
+      <iframe src="https://youtube.com/embed/loGWJtZq9QY?feature=share"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
               style="position:absolute;inset:0;width:100%;height:100%;">
-      </iframe> 
-    </div> 
-
-    <div class="video-caption"> 
-      <div class="vc-text"> 
-        <div class="vc-title">[guarderia linda vista / showreel 2021]</div> 
-        <div class="vc-desc">dirección: [linda vista] · producción: [supervision de obra] · [guadalupe, 2021]</div> 
-      </div> 
-      <div class="vc-chapters"> 
-        <span class="vcc-item">00:00 patio de serv.</span> 
-        <span class="vcc-item">00:25 comedor maters.</span> 
-        <span class="vcc-item">00:45 pasillos</span> 
-        <span class="vcc-item">01:05 filtro</span> 
-        <span class="vcc-item">01:30 patio</span> 
-      </div> 
-    </div> 
-  </div> 
+      </iframe>
+    </div>
+    <div class="video-caption">
+      <div class="vc-text">
+        <div class="vc-title">[guarderia linda vista / showreel 2021]</div>
+        <div class="vc-desc">dirección: [linda vista] · producción: [supervision de obra] · [guadalupe, 2021]</div>
+      </div>
+      <div class="vc-chapters">
+        <span class="vcc-item">00:00 patio de serv.</span>
+        <span class="vcc-item">00:25 comedor maters.</span>
+        <span class="vcc-item">00:45 pasillos</span>
+        <span class="vcc-item">01:05 filtro</span>
+        <span class="vcc-item">01:30 patio</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 
 <!-- ════════════════════════════════════════════════════════════
-  GALERÍA DE OBRAS (6 fotos)
-  ── Para cada obra:
-     1. Borra el div .gi-placeholder
-     2. Agrega: <img src="img/obra-N.jpg" alt="Descripción">
-     3. Edita gi-category, gi-title y gi-location
-  ── Tamaños recomendados:
-       Obra 1 (principal): 1680 × 945 px
-       Obras 2-6:           840 × 630 px
+  GALERÍA — CURRICULUM (planos)
 ════════════════════════════════════════════════════════════ -->
+
 <section class="gallery-section" id="obras">
 
 <div>
-
-<body>
-<div>
+    
+    <div>
+      
       <div class="section-eyebrow">Curriculum</div>
-      <h2 class="section-title">Algunos proyectos <em>resueltos</em></h2>
+      <h2 class="section-title"> Algunos proyectos <em>resueltos</em></h2>
     </div>
-<div class="gallery">
-<img src="img/planos/U-1169.webp" alt="Interamericano">
-<img src="img/planos/U-1657.webp" alt="Kant celeste">
-<img src="img/planos/U-439.webp" alt="Psicoeducativo Huinala">
-<img src="img/planos/U-774.webp" alt="Alegres dias">
-<img src="img/planos/U-351.webp" alt="Baby care">
+  
+    <body>
+
+    <div class="gallery">
+      
+      <img src="img/planos/U-1169.webp" alt="Interamericano">
+      <img src="img/planos/U-1657.webp" alt="Kant celeste">
+      <img src="img/planos/U-439.webp"  alt="Psicoeducativo Huinala">
+      <img src="img/planos/U-774.webp"  alt="Alegres dias">
+      <img src="img/planos/U-351.webp"  alt="Baby care">
+    
+
+    </body>
+ </div>
 
 
-</body>
+<section class="gallery-section" id="obras"></section>
 
-
-</div>
-
+  <!-- Encabezado del portafolio de obras -->
   <div class="gallery-header">
     <div>
       <div class="section-eyebrow">Portafolio</div>
       <h2 class="section-title">Algunas obras <em>realizadas</em></h2>
     </div>
-    <!-- Filtros — los data-filter deben coincidir con data-category de cada item -->
     <div class="gallery-filter">
       <button class="gf-btn active" data-filter="all">Todos</button>
-      <button class="gf-btn" data-filter="residenciales">residenciales</button>
-      <button class="gf-btn" data-filter="comerciales">comerciales</button>
-      <button class="gf-btn" data-filter="educativos">educativos</button>
+      <button class="gf-btn" data-filter="residenciales">Residenciales</button>
+      <button class="gf-btn" data-filter="comerciales">Comerciales</button>
+      <button class="gf-btn" data-filter="educativos">Educativos</button>
       <button class="gf-btn" data-filter="supervision">Supervisión</button>
     </div>
   </div>
 
-  <section class="gallery-section" id="gallery">
+  <!-- Cuadrícula de obras -->
   <div class="gallery-wrapper">
-
-    <!-- CONTENEDOR PRINCIPAL DE LA CUADRÍCULA -->
     <div class="gallery-grid" id="galleryGrid">
 
-      <!-- ── OBRA 1: Foto principal (ocupa 2 columnas) ── -->
+      <!-- OBRA 1 -->
       <div class="gallery-item" data-category="comerciales">
         <div class="gi-img">
-           <img src="img/5-eventos-cumbres.webp" alt="Salon de eventos Lozano">
+          <img src="img/5-eventos-cumbres.webp" alt="Salon de eventos Lozano">
         </div>
         <div class="gi-overlay">
-            <div class="gi-category">comerciales</div>
-            <div class="gi-title">Salon de eventos Lozano</div>
-            <div class="gi-location">Monterrey, Nuevo Leon · 2019</div>
+          <div class="gi-category">Comerciales</div>
+          <div class="gi-title">Salon de eventos Lozano</div>
+          <div class="gi-location">Monterrey, Nuevo Leon · 2019</div>
         </div>
       </div>
 
-      <!-- ── OBRA 2 ── -->
-      <div class="gallery-item" data-category="comercial">
+      <!-- OBRA 2 -->
+      <div class="gallery-item" data-category="educativos">
         <div class="gi-img">
-          <img src="img/3-educando-aprende.webp" alt="Guarderia IMSS"> 
-        </div> 
+          <img src="img/3-educando-aprende.webp" alt="Guarderia IMSS">
+        </div>
         <div class="gi-overlay">
-          <div class="gi-category">educativos</div>
+          <div class="gi-category">Educativos</div>
           <div class="gi-title">Guarderia IMSS U-1580</div>
           <div class="gi-location">Monterrey, Nuevo Leon · 2017</div>
         </div>
       </div>
 
-      <!-- ── OBRA 3 ── -->
-      <div class="gallery-item" data-category="escolar">
+      <!-- OBRA 3 -->
+      <div class="gallery-item" data-category="educativos">
         <div class="gi-img">
           <img src="img/4-naha-escobedo.webp" alt="NAHA Colegio">
-        </div> 
+        </div>
         <div class="gi-overlay">
-          <div class="gi-category">educativos</div>
+          <div class="gi-category">Educativos</div>
           <div class="gi-title">Guarderia NAHA U-1607</div>
           <div class="gi-location">Escobedo, Nuevo Leon · 2018</div>
         </div>
       </div>
-     
-      <!-- ── OBRA 4 ── -->
+
+      <!-- OBRA 4 -->
       <div class="gallery-item" data-category="comerciales">
         <div class="gi-img">
           <img src="img/8-oficinas-CIQA.webp" alt="Oficinas CIQA 2023">
-        </div> 
+        </div>
         <div class="gi-overlay">
-          <div class="gi-category">comerciales</div>
+          <div class="gi-category">Comerciales</div>
           <div class="gi-title">Oficinas CIQA 2023</div>
           <div class="gi-location">Saltillo, Coahuila · 2023</div>
         </div>
       </div>
 
-      <!-- ── OBRA 5 ── -->
+      <!-- OBRA 5 -->
       <div class="gallery-item" data-category="educativos">
         <div class="gi-img">
-          <img src="img/7-Estancias-EPIM.webp" alt="Guarderia IMSS EPIM"> 
-        </div> 
+          <img src="img/7-Estancias-EPIM.webp" alt="Guarderia IMSS EPIM">
+        </div>
         <div class="gi-overlay">
-          <div class="gi-category">educativos</div>
+          <div class="gi-category">Educativos</div>
           <div class="gi-title">Guarderia IMSS EPIM</div>
           <div class="gi-location">Guadalupe, Nuevo Leon · 2021</div>
         </div>
       </div>
-     
-      <!-- ── OBRA 6 ── -->
+
+      <!-- OBRA 6 -->
       <div class="gallery-item" data-category="comerciales">
         <div class="gi-img">
-           <img src="img/6-torre-411.webp" alt="Torre 411">
-        </div> 
+          <img src="img/6-torre-411.webp" alt="Torre 411">
+        </div>
         <div class="gi-overlay">
-          <div class="gi-category">comerciales</div> 
+          <div class="gi-category">Comerciales</div>
           <div class="gi-title">Torre 411</div>
           <div class="gi-location">Monterrey, Nuevo Leon · 2020</div>
         </div>
       </div>
 
-    </div> <!-- Cierre correcto de gallery-grid -->
+    </div><!-- /gallery-grid -->
 
     <div class="gallery-cta">
-      <a href="https://wa.me/528186052831?text=Hola,%20vi%20tu%20informacion%20en%20Mi%20Arqui%20on%20line%20y%20me%20gustaría%20solicitar%20un%20portafolio%20completo%20de%20proyectos." 
-   target="_blank" 
-   class="btn-ghost" 
-   style="display: inline-block; text-decoration: none; text-align: center;">
-   Solicita portafolio completo →
-</a>
+      <a href="https://wa.me/528186052831?text=Hola,%20vi%20tu%20informacion%20en%20Mi%20Arqui%20on%20line%20y%20me%20gustaría%20solicitar%20un%20portafolio%20completo%20de%20proyectos."
+         target="_blank"
+         class="btn-ghost"
+         style="display:inline-block;text-decoration:none;text-align:center;">
+        Solicita portafolio completo →
+      </a>
     </div>
 
-  </div> <!-- Cierre correcto de gallery-wrapper -->
-</section> <!-- Cierre correcto de la sección general -->
+  </div><!-- /gallery-wrapper -->
+
+</section><!-- /gallery-section -->
 
 
 <!-- ════════════════════════════════════════════════════════════
-  SERVICIOS (9 tarjetas)
-  ── Editar: descripciones, features y el mercado de cada tarjeta
+  GUARDERIAS IMSS
 ════════════════════════════════════════════════════════════ -->
 <section class="guarderias-section" id="guarderias">
+
   <div class="guarderias-intro">
     <div>
-      <div class="section-eyebrow"> Especialidades</div>
+      <div class="section-eyebrow">Especialidades</div>
       <h2 class="section-title">Guarderias<br>subrogadas <em>IMSS</em></h2>
       <div class="section-divider"></div>
       <p class="section-lead">
         Desde el proyecto aprobado hasta la construccion y equipamiento de tu guarderia,
-         conocemos todos y cada uno de los requisitos que el instituto solicita, las Normas, anexos
-         Apendices y lineamientos para que tu guarderia consiga estar al 100% con las supervisiones y seguimientos .
+        conocemos todos y cada uno de los requisitos que el instituto solicita, las Normas, anexos,
+        Apendices y lineamientos para que tu guarderia consiga estar al 100% con las supervisiones y seguimientos.
       </p>
     </div>
     <div style="padding-top:20px;">
-      <!-- EDITAR: años, ciudad, cédula y colegio -->
       <p style="font-size:.9rem;color:rgba(250,248,245,.55);line-height:1.8;">
         Con más de <strong style="color:var(--stone-l)">15 años de experiencia</strong> trabajando con guarderias
-        del IMSS a nivel nacional, la visión de diseño y nuestra agudeza en los procesos nos an llevado a realizar
-        las soluciones de diseño y obra civil que nuestros clientes pensaron que eran imposibles en sus 
-        instalaciones y con esto pudieron cumplir con las exigencias que el Instituto les condicionaba.
+        del IMSS a nivel nacional, la visión de diseño y nuestra agudeza en los procesos nos han llevado a realizar
+        las soluciones de diseño y obra civil que nuestros clientes pensaron que eran imposibles en sus instalaciones.
       </p>
       <div style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;">
         <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--stone-l);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Trabajo de campo: [25%]
+          Trabajo de campo: 25%
         </div>
         <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--stone-l);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Trabajo en escritorio: [75%]
+          Trabajo en escritorio: 75%
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Tarjetas de guarderias — 5 tarjetas en grid de 3 columnas -->
   <div class="guarderias-grid">
 
-    <!-- ── Servicio 1: Escolar ── -->
-    <div class="guarderias-card" onclick="openModal('Diseño Escolar')">
+    <!-- Tarjeta 1 -->
+    <div class="guarderias-card" onclick="openModal('Proyectos Arquitectonicos IMSS')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-      <div class="sc-market">Guarderias IMSS </div>
+      <div class="sc-market">Guarderias IMSS</div>
       <div class="sc-name">Proyectos arquitectonicos</div>
       <div class="sc-desc">
-        Proyectos arquitectónicos completos para cumplir con el Apendice 17 "requisitos de diseño arquitectonico para proyectos de guarderias de prestacion indirecta del IMSS ".
+        Proyectos arquitectónicos completos para cumplir con el Apendice 17 "requisitos de diseño arquitectonico para proyectos de guarderias de prestacion indirecta del IMSS".
       </div>
       <ul class="sc-features">
-        <li>Anteproyecto arquitectonico </li>
-        <li>Plano de cortes y elevaciones </li>
+        <li>Anteproyecto arquitectonico</li>
+        <li>Plano de cortes y elevaciones</li>
         <li>Plano de seguridad</li>
         <li>Planta de conjunto</li>
       </ul>
@@ -356,22 +500,21 @@
       </div>
     </div>
 
-    <!-- ── Servicio 2: Escolar ── -->
-    <div class="guarderias-card" onclick="openModal('Diseño Escolar')">
+    <!-- Tarjeta 2 -->
+    <div class="guarderias-card" onclick="openModal('Cambios en Planos')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
       </div>
-      <div class="sc-market">Guarderias IMSS </div>
+      <div class="sc-market">Guarderias IMSS</div>
       <div class="sc-name">Cambios en planos</div>
       <div class="sc-desc">
-        Te regresaron tus planos de mexico con una minuta con cambios a realizar en el proyecto? Nosotros los realizamos; con la seguridad de que no te los vuelvan a regresar.
+        ¿Te regresaron tus planos de México con una minuta con cambios? Nosotros los realizamos con la seguridad de que no te los vuelvan a regresar.
       </div>
       <ul class="sc-features">
         <li>Planos en CAD y PDF</li>
         <li>Check list de Nota informativa</li>
-        <li>Planos impresos en 90x60 cms</li>
-        <li>Bitacora y seguimiento de oficio </li>
-        
+        <li>Planos impresos en 90×60 cm</li>
+        <li>Bitácora y seguimiento de oficio</li>
       </ul>
       <div class="sc-cta">
         Contratar servicio
@@ -379,24 +522,22 @@
       </div>
     </div>
 
-    <!-- ── Servicio 3: Escolar ── -->
-    <div class="guarderias-card" onclick="openModal('Diseño Escolar')">
+    <!-- Tarjeta 3 -->
+    <div class="guarderias-card" onclick="openModal('Ampliaciones o Cambio de domicilio')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
       </div>
-      <div class="sc-market">Guarderias IMSS </div>
-      <div class="sc-name">Ampliaciones ó Cambio de domicilio.</div>
+      <div class="sc-market">Guarderias IMSS</div>
+      <div class="sc-name">Ampliaciones ó Cambio de domicilio</div>
       <div class="sc-desc">
-        Con el conocimiento y la experiencia en la gestion y ejecucion del proceso de ampliaciones y/o  
-        cambios de domicilio de guarderias activas, llevamos a nuestros clientes en el paso a paso hasta mejorar sus condiciones contractuales actuales, 
-        cumpliendo y renovando la vigencia de su contrato con el IMSS.
+        Con el conocimiento y la experiencia en la gestión y ejecución del proceso de ampliaciones y/o cambios de domicilio de guarderias activas, llevamos a nuestros clientes paso a paso hasta mejorar sus condiciones contractuales.
       </div>
       <ul class="sc-features">
-        <li>Gestoria de anexos y tramites</li>
+        <li>Gestoría de anexos y trámites</li>
         <li>Ayuda con nuevas ubicaciones calificadas</li>
-        <li>Proyecto arquitectonico completo</li>
+        <li>Proyecto arquitectónico completo</li>
         <li>Proyecto ejecutivo completo</li>
-        <li>Programa de obra necesario </li>
+        <li>Programa de obra necesario</li>
       </ul>
       <div class="sc-cta">
         Contratar servicio
@@ -404,24 +545,22 @@
       </div>
     </div>
 
-    <!-- ── Servicio 4: Escolar ── -->
-    <div class="guarderias-card" onclick="openModal('Diseño Escolar')">
+    <!-- Tarjeta 4 -->
+    <div class="guarderias-card" onclick="openModal('Licitaciones / Guarderias nuevas')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </div>
       <div class="sc-market">Guarderias IMSS</div>
-      <div class="sc-name">Licitaciones / guarderias nuevas </div>
+      <div class="sc-name">Licitaciones / Guarderias nuevas</div>
       <div class="sc-desc">
-        Asesoria técnica para clientes que están en proceso de renovacion de su contrato con el IMSS via "Licitacion publica"
-        o que buscan abrir nuevas guarderias. Con mas de 15 años de experiencia y +200 contratos federales ganados, ofrecemos los servicios
-        del tramite, maquila y ejecucion del proceso licitatorio de principio a fin hasta conseguir el fallo de adjudicacion.
+        Asesoría técnica para clientes en proceso de renovación de contrato vía "Licitación pública" o que buscan abrir nuevas guarderias. Con +200 contratos federales ganados, ofrecemos el proceso licitatorio de principio a fin.
       </div>
       <ul class="sc-features">
-        <li>Inscripcion en plataforma de concursos </li>
-        <li>Enlistado y recoleccion de requisitos  </li>
-        <li>Maquila de expediente Legal, Tecnico y Economico </li>
-        <li>Proyecto arquitectonico completo del exp. tecnico </li>
-        <li>Carga y firmado digital de informacion en plataforma </li>
+        <li>Inscripción en plataforma de concursos</li>
+        <li>Enlistado y recolección de requisitos</li>
+        <li>Maquila de expediente Legal, Técnico y Económico</li>
+        <li>Proyecto arquitectónico completo</li>
+        <li>Carga y firmado digital en plataforma</li>
       </ul>
       <div class="sc-cta">
         Contratar servicio
@@ -429,75 +568,71 @@
       </div>
     </div>
 
-     <!-- ── Servicio 5: Dictaminaciones / asesorias ── -->
-    <div class="guarderias-card" onclick="openModal('Diseño Escolar')">
+    <!-- Tarjeta 5 -->
+    <div class="guarderias-card" onclick="openModal('Dictamen Estructural')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </div>
-      <div class="sc-market">Dictamenes</div>
+      <div class="sc-market">Dictámenes</div>
       <div class="sc-name">Estructural</div>
       <div class="sc-desc">
-        Asesoria técnica para la correcta revision de tu guarderia. Emitiendo con esto una evaluacion dictaminada del estado estructural de tus instalaciones.
+        Asesoría técnica para la correcta revisión de tu guarderia. Emitiendo una evaluación dictaminada del estado estructural de tus instalaciones.
       </div>
       <ul class="sc-features">
         <li>Visita a guarderia</li>
         <li>Informe técnico por escrito</li>
         <li>Dictamen estructural avalado por P.J.</li>
-        <li>Bitacora y seguimiento post dictaminacion</li>
+        <li>Bitácora y seguimiento post dictaminación</li>
       </ul>
       <div class="sc-cta">
         Contratar servicio
         <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </div>
     </div>
-<div>
-  </div>
-    
+
+  </div><!-- /guarderias-grid -->
+
+</section><!-- /guarderias-section -->
 
 
+<!-- ════════════════════════════════════════════════════════════
+  SERVICIOS — ARQUITECTURA Y OBRA CIVIL
+════════════════════════════════════════════════════════════ -->
 <section class="services-section" id="servicios">
-  <div class="services-intro">
-    
-    <div class="services-intro">
-      <div class="section-eyebrow">Especialidades</div>
-      <h2 class="section-title">Arquitectura- <br>obra <em>civil</em></h2>
-      <div class="section-divider"></div>
-      
-      <p class="section-lead">
-        Desde la asesoría y la supervisión de las obras que estás ejecutando por tu cuenta, hasta el diseño de las obras especializadas o de carácter residencial, 
-        ejecutamos todo tipo de trabajos necesarios o trabajos relacionados con la Arquitectura, basados en nuestra experiencia y conocimientos adquiridos de 15 años en el rubro.
-      </div>
-    <div style="padding-top:20px;">
-      <!-- EDITAR: años, ciudad, cédula y colegio -->
-      <p style="font-size:.9rem;color:rgba(250,248,245,.55);line-height:1.8;">
-        Con más de <strong style="color:var(--stone-l)">15 años de experiencia</strong> ejerciendo la Arquitectura tanto en Diseños
-        planeaciones y en obra civil, conjugamos todas las experiencias y logros para aportar y ofrecer servicios de calidad y con
-        enfoque en lo practico y escencial que nuestros clientes necesitan, sin perder el profesionalismo y el proceso que se necesita.
-      </p>
 
+  <div class="services-intro">
+    <div>
+      <div class="section-eyebrow">Especialidades</div>
+      <h2 class="section-title">Arquitectura —<br>obra <em>civil</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Desde la asesoría y la supervisión de las obras que estás ejecutando por tu cuenta, hasta el diseño de obras especializadas
+        o de carácter residencial, ejecutamos todo tipo de trabajos relacionados con la Arquitectura basados en 15 años de experiencia.
+      </p>
+    </div>
+    <div style="padding-top:20px;">
+      <p style="font-size:.9rem;color:rgba(250,248,245,.55);line-height:1.8;">
+        Con más de <strong style="color:var(--stone-l)">15 años de experiencia</strong> ejerciendo la Arquitectura tanto en diseños,
+        planeaciones y en obra civil, conjugamos todas las experiencias para aportar servicios de calidad con enfoque en lo práctico
+        y esencial que nuestros clientes necesitan.
+      </p>
       <div class="services-badges">
         <div class="badge-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Trabajo de campo: [75%]
+          Trabajo de campo: 75%
         </div>
         <div class="badge-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Trabajo en escritorio: [25%]
+          Trabajo en escritorio: 25%
         </div>
       </div>
     </div>
-
-    <div class="services-details">
-      </div>
-
   </div>
-</section>
 
+  <!-- Tarjetas de servicios generales — grid de 2 columnas -->
   <div class="services-grid">
 
-</div>
-
-<!-- ── Servicio 6: Residencial ── -->
+    <!-- Servicio 1: Residencial -->
     <div class="service-card" onclick="openModal('Diseño Residencial')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -520,7 +655,7 @@
       </div>
     </div>
 
-<!-- ── Servicio 7: Comercial ── -->
+    <!-- Servicio 2: Comercial -->
     <div class="service-card" onclick="openModal('Proyecto Comercial')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
@@ -528,15 +663,14 @@
       <div class="sc-market">Mercado Comercial</div>
       <div class="sc-name">Naves y Espacios Comerciales</div>
       <div class="sc-desc">
-        Diseño y planificación de espacios comerciales, hoteles, bodegas
-        y espacios logísticos optimizados para operación.
+        Diseño y planificación de espacios comerciales, hoteles, bodegas y espacios logísticos optimizados para operación.
       </div>
       <ul class="sc-features">
-        <li>Diseño arquitectonico y funcional</li>
+        <li>Diseño arquitectónico y funcional</li>
         <li>Cálculo estructural</li>
         <li>Instalaciones especiales</li>
         <li>Cumplimiento normativo</li>
-        <li>Tramites y gestiones municipales</li>
+        <li>Trámites y gestiones municipales</li>
       </ul>
       <div class="sc-cta">
         Contratar servicio
@@ -544,7 +678,7 @@
       </div>
     </div>
 
- <!-- ── Servicio 8: Escolar ── -->
+    <!-- Servicio 3: Escolar -->
     <div class="service-card" onclick="openModal('Diseño Escolar')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
@@ -552,14 +686,14 @@
       <div class="sc-market">Mercado Escolar</div>
       <div class="sc-name">Infraestructura Educativa</div>
       <div class="sc-desc">
-        Especialistas en la Normativa IMSS vigente, usamos esos lineamientos tan 
-        exigentes como parametros para la calidad con los trabajos y proyectos fuera de esta normativa.
+        Especialistas en la Normativa IMSS vigente, usamos esos lineamientos tan exigentes como parámetros
+        de calidad para todos los proyectos fuera de esta normativa.
       </div>
       <ul class="sc-features">
-        <li>Diseño arquitectonico de espacios</li>
-        <li>Dictaminacion de instalaciones</li>
-        <li>Construccion bajo normativas</li>
-        <li>Ampliaciones y mentenimientos </li>
+        <li>Diseño arquitectónico de espacios</li>
+        <li>Dictaminación de instalaciones</li>
+        <li>Construcción bajo normativas</li>
+        <li>Ampliaciones y mantenimientos</li>
       </ul>
       <div class="sc-cta">
         Contratar servicio
@@ -567,7 +701,7 @@
       </div>
     </div>
 
-    <!-- ── Servicio 9: Supervisión / Autoconstrucción ── -->
+    <!-- Servicio 4: Supervisión -->
     <div class="service-card" onclick="openModal('Supervisión de Obra')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -575,8 +709,8 @@
       <div class="sc-market">Autoconstrucción</div>
       <div class="sc-name">Supervisión de Obra</div>
       <div class="sc-desc">
-        Asesoria técnica para clientes que están autoconstruyendo. Visitas de
-        supervisión, dictámenes técnicos y resolución de problemas en obra.
+        Asesoría técnica para clientes que están autoconstruyendo. Visitas de supervisión,
+        dictámenes técnicos y resolución de problemas en obra.
       </div>
       <ul class="sc-features">
         <li>Visitas periódicas a tu obra</li>
@@ -590,12 +724,13 @@
       </div>
     </div>
 
-  </div>
-</section>
+  </div><!-- /services-grid -->
+
+</section><!-- /services-section -->
+
 
 <!-- ════════════════════════════════════════════════════════════
-  PLANES / MEMBRESÍAS (4 módulos)
-  ── Editar: precios en id="price1..4" y los features de cada plan
+  PLANES / MEMBRESÍAS
 ════════════════════════════════════════════════════════════ -->
 <section class="plans-section" id="planes">
 
@@ -611,15 +746,14 @@
 
   <div class="plans-grid">
 
-    <!-- ── Plan 1: Consultoría ── -->
+    <!-- Plan 1: Consultoría -->
     <div class="plan-card">
       <div class="plan-market">Autoconstrucción</div>
       <div class="plan-name">Consultoría Técnica</div>
       <div class="plan-desc">Para quien necesita orientación puntual antes de iniciar o durante la obra.</div>
       <div class="plan-price">
         <span class="pp-currency">$</span>
-        <!-- EDITAR: reemplaza [XXXX] con tu precio real -->
-        <span class="pp-amount" id="price1">[1,100.00]</span>
+        <span class="pp-amount" id="price1">1,100.00</span>
         <span class="pp-period">/ visita</span>
       </div>
       <div class="plan-price-note">Por visita a obra · Sin contrato mínimo</div>
@@ -650,15 +784,14 @@
           Supervisión continua
         </li>
       </ul>
-      <a href="https://buy.stripe.com/14A28l5Lvgdp2jS5SE1gs01"
-   target="_blank"
-   class="plan-btn plan-btn-outline"
-   style="display:block;text-align:center;text-decoration:none;">
-  Agendar y Pagar
-</a>
-    </div>
+        <button class="plan-btn plan-btn-solid"
+          onclick="openModal('Consultoría Técnica')"
+          style="width:100%;cursor:pointer;">
+    💳 Pagar · Agendar Cita
+  </button>
+  </div>
 
-    <!-- ── Plan 2: Supervisión (DESTACADO) ── -->
+    <!-- Plan 2: Supervisión (DESTACADO) -->
     <div class="plan-card featured">
       <div class="plan-popular">MÁS CONTRATADO</div>
       <div class="plan-market">Autoconstrucción</div>
@@ -666,7 +799,7 @@
       <div class="plan-desc">Acompañamiento continuo para proyectos en ejecución. Ideal para autoconstrucción.</div>
       <div class="plan-price">
         <span class="pp-currency">$</span>
-        <span class="pp-amount" id="price2">[6,000.00]</span>
+        <span class="pp-amount" id="price2">6,000.00</span>
         <span class="pp-period">/ mes</span>
       </div>
       <div class="plan-price-note">2 visitas mensuales · Contrato mínimo 2 meses</div>
@@ -697,26 +830,23 @@
           Proyecto arquitectónico
         </li>
       </ul>
-      <a href="https://buy.stripe.com/fZu4gtfm56CPaQo0yk1gs00"
-        target="_blank"
-        class="plan-btn plan-btn-outline"
-        style="display:block;text-align:center;text-decoration:none;">
-          Agendar y Pagar
-      </a>
-    </div>
-
-    <!-- ── Plan 3: Proyecto Residencial Completo ── -->
+        <button class="plan-btn plan-btn-solid"
+          onclick="openModal('Supervisión de Obra')"
+          style="width:100%;cursor:pointer;">
+    💳 Pagar · Agendar Cita
+  </button>
+  </div>
+    <!-- Plan 3: Proyecto Residencial Completo -->
     <div class="plan-card">
       <div class="plan-market">Residencial</div>
       <div class="plan-name">Proyecto Completo</div>
       <div class="plan-desc">Diseño arquitectónico integral para casa habitación o desarrollo habitacional.</div>
       <div class="plan-price">
         <span class="pp-currency">$</span>
-        <span class="pp-amount" id="price3">[98.00]</span>
+        <span class="pp-amount" id="price3">98.00</span>
         <span class="pp-period">/ m²</span>
       </div>
-      <!-- EDITAR: mínimo de m² según tu política -->
-      <div class="plan-price-note">Precio por m² de construcción · Mínimo [45] m²</div>
+      <div class="plan-price-note">Precio por m² de construcción · Mínimo 45 m²</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
         <li class="included">
@@ -740,20 +870,18 @@
           Gestión de licencia de construcción
         </li>
         <li class="included">
-          <!-- EDITAR: número de revisiones incluidas -->
           <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          [3] revisiones de diseño
+          3 revisiones de diseño
         </li>
       </ul>
-      <a href="https://buy.stripe.com/bJe9AN2zj1ivbUsepa1gs02"
-        target="_blank"
-        class="plan-btn plan-btn-outline"
-        style="display:block;text-align:center;text-decoration:none;">
-            Agendar y Pagar
-      </a>
+        <button class="plan-btn plan-btn-outline"
+          onclick="openModal('Diseño Residencial')"
+          style="width:100%;cursor:pointer;">
+    Agendar Cita →
+  </button>
     </div>
 
-    <!-- ── Plan 4: Proyecto Especializado Industrial / Escolar ── -->
+    <!-- Plan 4: Especializado -->
     <div class="plan-card">
       <div class="plan-market">Comercial · Escolar</div>
       <div class="plan-name">Proyecto Especializado</div>
@@ -790,65 +918,25 @@
           Atención personalizada
         </li>
       </ul>
-      <a href="https://buy.stripe.com/TU-LINK-CONSULTORIA"
-        target="_blank"
-        class="plan-btn plan-btn-outline"
-        style="display:block;text-align:center;text-decoration:none;">
-        Agendar y Pagar
-      </a>
-    </div>
-
-  </div><!-- /plans-grid -->
+      <button class="plan-btn plan-btn-outline"
+          onclick="openModal('Proyecto Especializado')"
+          style="width:100%;cursor:pointer;">
+    Agendar Cita →
+  </button>
+   
+ </div><!-- /plans-grid -->
+</section><!-- /plans-section -->
+ 
 
   <p class="plans-note">
-    * Todos los precios son en MXN, no incluyen IVA · Consulta inicial gratuita de 30 min via telefonica ·
+    * Todos los precios son en MXN, no incluyen IVA · Consulta inicial gratuita de 30 min vía telefónica ·
     Formas de pago: efectivo, transferencia, tarjeta *
   </p>
-</section>
 
-<!-- ════════════════════════════════════════════════════════════
-  PROCESO DE TRABAJO
-  ── Editar: títulos y descripciones de los 4 pasos
-════════════════════════════════════════════════════════════ -->
-<section class="process-section" id="proceso">
-  <div style="max-width:560px;">
-    <div class="section-eyebrow">Metodología</div>
-    <h2 class="section-title">Cómo <em>trabajamos</em><br>juntos</h2>
-    <div class="section-divider"></div>
-    <p class="section-lead">
-      Un proceso claro y ordenado para que siempre sepas en qué etapa está tu
-      proyecto y qué sigue.
-    </p>
-  </div>
-
-  <div class="process-grid">
-    <div class="process-step">
-      <div class="ps-num">01</div>
-      <div class="ps-title">Consulta inicial</div>
-      <div class="ps-desc">Sesión gratuita de 30 min para entender tus necesidades, presupuesto estimado y tiempos. Sin compromiso.</div>
-    </div>
-    <div class="process-step">
-      <div class="ps-num">02</div>
-      <div class="ps-title">Propuesta y contrato</div>
-      <div class="ps-desc">Presentamos una propuesta de honorarios detallada y formalizamos un contrato digital de servicios profesionales.</div>
-    </div>
-    <div class="process-step">
-      <div class="ps-num">03</div>
-      <div class="ps-title">Diseño y desarrollo</div>
-      <div class="ps-desc">Desarrollamos el proyecto con revisiones periódicas hasta tu aprobación. Comunicación constante.</div>
-    </div>
-    <div class="process-step">
-      <div class="ps-num">04</div>
-      <div class="ps-title">Entrega y seguimiento</div>
-      <div class="ps-desc">Entregamos planos ejecutivos completos, un programa de obra, un catalogo de conceptos y damos seguimiento durante la construcción.</div>
-    </div>
-  </div>
-</section>
+ 
 
 <!-- ════════════════════════════════════════════════════════════
   TESTIMONIOS
-  ── Los testimonios se muestran desde el array TESTIMONIALS en app.js
-  ── Los nuevos comentarios del formulario también se agregan ahí
 ════════════════════════════════════════════════════════════ -->
 <section class="testimonials-section" id="testimonios">
 
@@ -873,10 +961,8 @@
     </div>
   </div>
 
-  <!-- Las tarjetas se generan por JS desde TESTIMONIALS en app.js -->
   <div class="testimonials-grid" id="testimonialsGrid"></div>
 
-  <!-- Formulario: dejar reseña -->
   <div class="leave-review">
     <div class="lr-title">¿Que te parece nuestro trabajo? Deja tu opinión</div>
     <div class="form-grid">
@@ -921,16 +1007,16 @@
     </p>
   </div>
 
-</section>
+</section><!-- /testimonials-section -->
+
 
 <!-- ════════════════════════════════════════════════════════════
   CTA FINAL
-  ── EDITAR: teléfono WhatsApp, email y ciudad
 ════════════════════════════════════════════════════════════ -->
 <section class="cta-final">
   <div style="position:relative;z-index:1;">
     <div class="section-eyebrow" style="justify-content:center;">¿Listo para empezar?</div>
-    <h2 class="section-title">Tu proyecto merece<br><em>un profesional </em>comprometido</h2>
+    <h2 class="section-title">Tu proyecto merece<br><em>un profesional</em> comprometido</h2>
     <div class="section-divider" style="margin:24px auto 16px;"></div>
     <p class="section-lead">
       Primera consulta sin costo. Cuéntanos tu proyecto y en menos de 24h te respondemos
@@ -940,23 +1026,21 @@
       <button class="btn-primary" onclick="openModal('Consulta Inicial Gratuita')">
         Agendar Consulta Gratuita
       </button>
-      <!-- EDITAR: reemplaza 521XXXXXXXXXX con tu número (lada + número sin guiones) -->
       <a class="btn-ghost"
          href="https://wa.me/528186052831?text=Hola,%20me%20interesa%20mas%20informacion%20de%20servicios"
          target="_blank">
         WhatsApp directo →
       </a>
     </div>
-    <!-- EDITAR: teléfono, email y ciudad -->
     <p style="font-size:.78rem;color:rgba(250,248,245,.3);margin-top:20px;">
-      📞 [8186052831] &nbsp;·&nbsp; ✉️ [arquitecturayseguridad@hotmail.com] &nbsp;·&nbsp; 📍 [Monterrey, Nuevo Leon]
+      📞 8186052831 &nbsp;·&nbsp; ✉️ arquitecturayseguridad@hotmail.com &nbsp;·&nbsp; 📍 Monterrey, Nuevo Leon
     </p>
   </div>
 </section>
 
+
 <!-- ════════════════════════════════════════════════════════════
   FOOTER
-  ── EDITAR: nombre, cédula y año
 ════════════════════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="footer-logo">MI ARQUI. [on line] — Servicios de Arquitectura</div>
@@ -968,14 +1052,13 @@
     <a href="#">Aviso de privacidad</a>
   </div>
   <div class="footer-copy">
-    © 2025 · Todos los derechos reservados 
+    © 2025 · Todos los derechos reservados
   </div>
 </footer>
 
+
 <!-- ════════════════════════════════════════════════════════════
-  MODAL DE COMPRA / AGENDA DE CITAS
-  ── No editar este bloque. Los textos dinámicos los
-     controla app.js (openModal, goToStep, etc.)
+  MODAL DE AGENDA DE CITAS
 ════════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
@@ -990,7 +1073,6 @@
 
     <div class="modal-body">
 
-      <!-- Indicador de pasos -->
       <div class="modal-steps">
         <div class="ms-step active" id="step-tab-1">
           <div class="ms-num">1</div><div class="ms-label">Tus datos</div>
@@ -1003,7 +1085,7 @@
         </div>
       </div>
 
-      <!-- STEP 1: Datos del cliente -->
+      <!-- STEP 1 -->
       <div class="step-panel active" id="step-1">
         <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">
           Cuéntame un poco sobre ti y tu proyecto para poder preparar mejor nuestra reunión.
@@ -1030,8 +1112,7 @@
           <div class="form-field">
             <label>Describe brevemente tu proyecto o necesidad *</label>
             <textarea id="cl_desc" rows="3"
-              placeholder="Ej: Quiero construir una casa de 120m² en un terreno en esquina...">
-            </textarea>
+              placeholder="Ej: Quiero construir una casa de 120m² en un terreno en esquina..."></textarea>
           </div>
           <div class="form-field" style="margin-top:10px;">
             <label>Presupuesto aproximado (opcional)</label>
@@ -1051,13 +1132,11 @@
         </div>
       </div>
 
-      <!-- STEP 2: Calendario -->
+      <!-- STEP 2 -->
       <div class="step-panel" id="step-2">
         <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">
-          Selecciona la fecha y hora de tu preferencia. Las reuniones pueden ser presenciales
-          o por videollamada.
+          Selecciona la fecha y hora de tu preferencia. Las reuniones pueden ser presenciales o por videollamada.
         </p>
-
         <div class="cal-header">
           <div class="cal-month" id="calMonth">—</div>
           <div class="cal-nav">
@@ -1069,7 +1148,6 @@
             </button>
           </div>
         </div>
-
         <div class="cal-days-header">
           <div class="cal-day-name">Dom</div>
           <div class="cal-day-name">Lun</div>
@@ -1079,12 +1157,9 @@
           <div class="cal-day-name">Vie</div>
           <div class="cal-day-name">Sáb</div>
         </div>
-
         <div class="cal-grid" id="calGrid"></div>
-
         <div class="timeslots-label">Horarios disponibles</div>
         <div class="timeslots-grid" id="timeslotsGrid"></div>
-
         <div class="booking-summary" id="bookingSummary">
           <div class="bs-row"><span>Servicio</span><strong id="bs_service">—</strong></div>
           <div class="bs-row"><span>Fecha</span><strong id="bs_date">—</strong></div>
@@ -1092,7 +1167,6 @@
           <div class="bs-row"><span>Modalidad</span><strong>Presencial o videollamada</strong></div>
           <div class="bs-row"><span>Duración</span><strong>30 – 60 min</strong></div>
         </div>
-
         <div class="modal-footer">
           <button class="modal-back-btn" onclick="goToStep(1)">← Atrás</button>
           <button class="modal-next-btn" id="confirmDateBtn"
@@ -1103,7 +1177,7 @@
         </div>
       </div>
 
-      <!-- STEP 3: Confirmación -->
+      <!-- STEP 3 -->
       <div class="step-panel" id="step-3">
         <div style="text-align:center;padding:20px 0 10px;">
           <div style="width:64px;height:64px;border-radius:50%;background:rgba(61,107,79,.2);
@@ -1121,8 +1195,50 @@
             Recibí tu solicitud de consulta. Te confirmaré la cita en menos de
             <strong style="color:var(--stone-l)">2 horas</strong> por WhatsApp y email.
           </p>
+          <div style="margin-top: 20px; text-align: center;">
+  <a id="whatsappConfirmBtn"
+     href="#"
+     target="_blank"
+     rel="noopener"
+     style="
+       display: none;
+       align-items: center;
+       justify-content: center;
+       gap: 10px;
+       background: #25D366;
+       color: #fff;
+       font-family: var(--fb);
+       font-size: .82rem;
+       letter-spacing: 3px;
+       text-transform: uppercase;
+       font-weight: 700;
+       padding: 14px 28px;
+       border-radius: 8px;
+       text-decoration: none;
+       transition: background .25s;
+     ">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15
+               -.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075
+               -.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059
+               -.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52
+               .149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52
+               -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51
+               -.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372
+               -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074
+               .149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625
+               .712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413
+               .248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.522 5.854L.057 23.882
+               l6.186-1.438A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z
+               M12 22c-1.891 0-3.667-.5-5.2-1.373l-.373-.217-3.873.9.976-3.77
+               -.24-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10
+               -4.477 10-10 10z"/>
+    </svg>
+    Confirmar cita por WhatsApp
+  </a>
+</div>
         </div>
-
         <div style="background:rgba(200,184,154,.06);border:1px solid rgba(200,184,154,.15);
                     border-radius:10px;padding:18px;margin-bottom:20px;">
           <div class="bs-row"><span>Nombre</span><strong id="conf_name">—</strong></div>
@@ -1130,30 +1246,26 @@
           <div class="bs-row"><span>Fecha y hora</span><strong id="conf_datetime">—</strong></div>
           <div class="bs-row"><span>Contacto</span><strong id="conf_contact">—</strong></div>
         </div>
-
-        <!-- EDITAR: número y email de contacto para cambiar citas -->
         <p style="font-size:.8rem;color:rgba(250,248,245,.4);text-align:center;line-height:1.6;">
           Si necesitas cambiar tu cita, contáctame directamente a<br>
-          <strong style="color:var(--stone)">WhatsApp: [TU NÚMERO]</strong> o
-          <strong style="color:var(--stone)">[TU EMAIL]</strong>
+          <strong style="color:var(--stone)">WhatsApp: 8186052831</strong> o
+          <strong style="color:var(--stone)">arquitecturayseguridad@hotmail.com</strong>
         </p>
-
         <div class="modal-footer" style="justify-content:center;">
-
-        <div id="stripePayBtn" style="display:none;text-align:center;margin-bottom:16px;">
-        <p style="font-size:.8rem;color:rgba(15,14,13,.5);margin-bottom:10px;">
-             Para confirmar tu cita, realiza el pago del anticipo:
-        </p>
-        <a id="stripePayLink"
-            href="#"
-            target="_blank"
-            style="display:inline-block;background:#635bff;color:#fff;
-            font-family:'Sora',sans-serif;font-weight:700;
-            font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
-            padding:13px 28px;border-radius:8px;text-decoration:none;">
-           💳 Pagar con tarjeta (Stripe)
-        </a>
-        </div>
+          <div id="stripePayBtn" style="display:none;text-align:center;margin-bottom:16px;">
+            <p style="font-size:.8rem;color:rgba(15,14,13,.5);margin-bottom:10px;">
+              Para confirmar tu cita, realiza el pago del anticipo:
+            </p>
+            <a id="stripePayLink"
+               href="#"
+               target="_blank"
+               style="display:inline-block;background:#635bff;color:#fff;
+                      font-family:'Sora',sans-serif;font-weight:700;
+                      font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
+                      padding:13px 28px;border-radius:8px;text-decoration:none;">
+              💳 Pagar con tarjeta (Stripe)
+            </a>
+          </div>
           <button class="modal-next-btn" onclick="closeModal()">Cerrar</button>
         </div>
       </div>
@@ -1162,7 +1274,6 @@
   </div><!-- /modal -->
 </div><!-- /modal-overlay -->
 
-<!-- Script principal externo -->
 <script src="app.js"></script>
 </body>
 </html>
