@@ -1,0 +1,125 @@
+/* --- CONFIGURACIÓN GENERAL DEL FONDO --- */
+.main-footer {
+    background-color: #1a1714; /* Mismo fondo oscuro elegante de tus otras secciones */
+    padding: 70px 60px; /* Espaciado generoso para que respiren las fichas 3D */
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(200, 184, 154, 0.15); /* Línea dorada sutil superior */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Deja la marca a la izquierda y las redes a la derecha */
+    align-items: center;
+    flex-wrap: wrap; /* Permite que si no hay espacio, el bloque de redes baje limpiamente */
+    gap: 30px;       /* Evita que se encimen si llegan a ponerse uno abajo del otro */
+
+}
+
+/* Estilo para el nombre de marca en el footer */
+.footer-brand h3 {
+    color: #c8b89a;
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+.footer-brand p {
+    color: #a8a29e;
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* --- REESCRITURA DE LA LISTA (.ul) PARA EL FLUJO DEL FOOTER --- */
+.ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Eliminado el position: absolute para que no flote en el centro */
+    height: 120px; /* Le da altura para compensar la inclinación en perspectiva */
+    align-items: center;
+}
+
+.ul li {
+    list-style: none;
+    margin: 0 15px; /* Un poco más de separación para que no se encimen al levantarse */
+}
+
+/* --- ESTADO INICIAL DE LA FICHA (Acostada) --- */
+.ul li a {
+    text-decoration: none;
+    display: block;
+    width: 180px;  /* Cambiado de 210px a 180px */
+    height: 75px;  /* Cambiado de 80px a 75px para mantener la proporción */
+    background: #fff;
+    text-align: left;
+    padding-left: 20px;
+    position: relative; /* Cambiado de 'display: absolute' que estaba duplicado */
+    
+    /* Efecto perspectiva de ficha dominó en reposo */
+    transform: rotate(-30deg) skew(25deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    
+    /* Sombra profunda y chata (simula estar pegada a la mesa) */
+    box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- CONTENIDO INTERNO DE LA FICHA (Icono y Texto) --- */
+.ul li a .fa {
+    font-size: 35px;
+    color: #262626;
+    line-height: 80px;
+    transition: color 0.4s, transform 0.4s;
+    padding-right: 14px;
+    vertical-align: middle;
+}
+
+.ul li a span {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 26px;
+    color: #262626;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: color 0.4s, transform 0.4s;
+}
+
+/* --- EFECTO GENERAL AL PASAR EL CURSOR (Levantar la ficha) --- */
+.ul li a:hover {
+    /* Desplaza la ficha hacia arriba/izquierda y reduce el sesgo para simular que se levanta */
+    transform: rotate(-30deg) skew(25deg) translate(15px, -15px);
+    
+    /* La sombra se vuelve más larga, suave y dispersa porque la ficha se alejó del fondo */
+    box-shadow: -35px 35px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Al levantar la ficha, el texto e iconos se pintan de blanco */
+.ul li a:hover .fa,
+.ul li a:hover span {
+    color: #fff;
+}
+
+/* --- COMPLEMENTO: COLORES PERSONALIZADOS POR FICHA --- */
+
+/* 1. Facebook (Ficha 1) */
+.ul li:nth-child(1) a:hover {
+    background: #1877f2;
+}
+
+/* 2. Twitter / X (Ficha 2) */
+.ul li:nth-child(2) a:hover {
+    background: #000000; /* Negro oficial de X, o puedes usar #1da1f2 si prefieres el azul clásico */
+}
+
+/* 3. Instagram (Ficha 3 - Gradiente) */
+.ul li:nth-child(3) a:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+/* 4. YouTube (Ficha 4) */
+.ul li:nth-child(4) a:hover {
+    background: #ff0000;
+}

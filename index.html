@@ -303,35 +303,142 @@
 
 
 <!-- ════════════════════════════════════════════════════════════
-  GALERÍA — CURRICULUM (planos)
+  SERVICIOS — ARQUITECTURA Y OBRA CIVIL
+════════════════════════════════════════════════════════════ -->
+<section class="services-section" id="servicios">
+
+  <div class="services-intro">
+    <div>
+      <div class="section-eyebrow">Especialidades</div>
+      <h2 class="section-title">Arquitectura —<br>obra <em>civil</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Desde la asesoría y la supervisión de las obras que estás ejecutando por tu cuenta, hasta el diseño de obras especializadas
+        o de carácter residencial, ejecutamos todo tipo de trabajos relacionados con la Arquitectura basados en 15 años de experiencia.
+      </p>
+    </div>
+    <div style="padding-top:20px;">
+      <p style="font-size:.9rem;color:rgba(250,248,245,.55);line-height:1.8;">
+        Con más de <strong style="color:var(--stone-l)">15 años de experiencia</strong> ejerciendo la Arquitectura tanto en diseños,
+        planeaciones y en obra civil, conjugamos todas las experiencias para aportar servicios de calidad con enfoque en lo práctico
+        y esencial que nuestros clientes necesitan.
+      </p>
+      <div class="services-badges">
+        <div class="badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Trabajo de campo: 75%
+        </div>
+        <div class="badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Trabajo en escritorio: 25%
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjetas de servicios generales — grid de 2 columnas -->
+  <div class="services-grid">
+
+    <!-- Servicio 1: Residencial -->
+    <div class="service-card" onclick="openModal('Diseño Residencial')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="sc-market">Mercado Residencial</div>
+      <div class="sc-name">Diseños de Casa Habitación</div>
+      <div class="sc-desc">
+        Proyectos arquitectónicos completos para vivienda unifamiliar y multifamiliar,
+        desde el anteproyecto hasta planos ejecutivos y programaciones de obra.
+      </div>
+      <ul class="sc-features">
+        <li>Anteproyecto + renders</li>
+        <li>Planos arquitectónicos y estructurales</li>
+        <li>Gestión de permisos municipales</li>
+        <li>Especificaciones técnicas</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- Servicio 2: Comercial -->
+    <div class="service-card" onclick="openModal('Proyecto Comercial')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      </div>
+      <div class="sc-market">Mercado Comercial</div>
+      <div class="sc-name">Naves y Espacios Comerciales</div>
+      <div class="sc-desc">
+        Diseño y planificación de espacios comerciales, hoteles, bodegas y espacios logísticos optimizados para operación.
+      </div>
+      <ul class="sc-features">
+        <li>Diseño arquitectónico y funcional</li>
+        <li>Cálculo estructural</li>
+        <li>Instalaciones especiales</li>
+        <li>Cumplimiento normativo</li>
+        <li>Trámites y gestiones municipales</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- Servicio 3: Escolar -->
+    <div class="service-card" onclick="openModal('Diseño Escolar')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      </div>
+      <div class="sc-market">Mercado Escolar</div>
+      <div class="sc-name">Infraestructura Educativa</div>
+      <div class="sc-desc">
+        Especialistas en la Normativa IMSS vigente, usamos esos lineamientos tan exigentes como parámetros
+        de calidad para todos los proyectos fuera de esta normativa.
+      </div>
+      <ul class="sc-features">
+        <li>Diseño arquitectónico de espacios</li>
+        <li>Dictaminación de instalaciones</li>
+        <li>Construcción bajo normativas</li>
+        <li>Ampliaciones y mantenimientos</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- Servicio 4: Supervisión -->
+    <div class="service-card" onclick="openModal('Supervisión de Obra')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="sc-market">Autoconstrucción</div>
+      <div class="sc-name">Supervisión de Obra</div>
+      <div class="sc-desc">
+        Asesoría técnica para clientes que están autoconstruyendo. Visitas de supervisión,
+        dictámenes técnicos y resolución de problemas en obra.
+      </div>
+      <ul class="sc-features">
+        <li>Visitas periódicas a tu obra</li>
+        <li>Informe técnico por visita</li>
+        <li>Resolución de problemas constructivos</li>
+        <li>Asesoría en materiales, costos y trabajadores</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+  </div><!-- /services-grid -->
+
+</section><!-- /services-section -->
+
+<!-- ════════════════════════════════════════════════════════════
+  GALERÍA — PROTAFOLIO (obras)
 ════════════════════════════════════════════════════════════ -->
 
-<section class="gallery-section" id="obras">
-
-<div>
-    
-    <div>
-      
-      <div class="section-eyebrow">Curriculum</div>
-      <h2 class="section-title"> Algunos proyectos <em>resueltos</em></h2>
-    </div>
-  
-    <body>
-
-    <div class="gallery">
-      
-      <img src="img/planos/U-1169.webp" alt="Interamericano">
-      <img src="img/planos/U-1657.webp" alt="Kant celeste">
-      <img src="img/planos/U-439.webp"  alt="Psicoeducativo Huinala">
-      <img src="img/planos/U-774.webp"  alt="Alegres dias">
-      <img src="img/planos/U-351.webp"  alt="Baby care">
-    
-
-    </body>
- </div>
-
-
-<section class="gallery-section" id="obras"></section>
 
   <!-- Encabezado del portafolio de obras -->
   <div class="gallery-header">
@@ -441,7 +548,7 @@
 
 
 <!-- ════════════════════════════════════════════════════════════
-  GUARDERIAS IMSS
+  SERVICIOS-GUARDERIAS IMSS
 ════════════════════════════════════════════════════════════ -->
 <section class="guarderias-section" id="guarderias">
 
@@ -596,137 +703,36 @@
 
 
 <!-- ════════════════════════════════════════════════════════════
-  SERVICIOS — ARQUITECTURA Y OBRA CIVIL
+  GALERÍA — CURRICULUM (planos)
 ════════════════════════════════════════════════════════════ -->
-<section class="services-section" id="servicios">
 
-  <div class="services-intro">
+<section class="gallery-section" id="obras">
+
+<div>
+    
     <div>
-      <div class="section-eyebrow">Especialidades</div>
-      <h2 class="section-title">Arquitectura —<br>obra <em>civil</em></h2>
-      <div class="section-divider"></div>
-      <p class="section-lead">
-        Desde la asesoría y la supervisión de las obras que estás ejecutando por tu cuenta, hasta el diseño de obras especializadas
-        o de carácter residencial, ejecutamos todo tipo de trabajos relacionados con la Arquitectura basados en 15 años de experiencia.
-      </p>
+      
+      <div class="section-eyebrow">Curriculum</div>
+      <h2 class="section-title"> Algunos proyectos <em>resueltos</em></h2>
     </div>
-    <div style="padding-top:20px;">
-      <p style="font-size:.9rem;color:rgba(250,248,245,.55);line-height:1.8;">
-        Con más de <strong style="color:var(--stone-l)">15 años de experiencia</strong> ejerciendo la Arquitectura tanto en diseños,
-        planeaciones y en obra civil, conjugamos todas las experiencias para aportar servicios de calidad con enfoque en lo práctico
-        y esencial que nuestros clientes necesitan.
-      </p>
-      <div class="services-badges">
-        <div class="badge-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Trabajo de campo: 75%
-        </div>
-        <div class="badge-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Trabajo en escritorio: 25%
-        </div>
-      </div>
-    </div>
-  </div>
+  
+    <body>
 
-  <!-- Tarjetas de servicios generales — grid de 2 columnas -->
-  <div class="services-grid">
+    <div class="gallery">
+      
+      <img src="img/planos/U-1169.webp" alt="Interamericano">
+      <img src="img/planos/U-1657.webp" alt="Kant celeste">
+      <img src="img/planos/U-439.webp"  alt="Psicoeducativo Huinala">
+      <img src="img/planos/U-774.webp"  alt="Alegres dias">
+      <img src="img/planos/U-351.webp"  alt="Baby care">
+    
 
-    <!-- Servicio 1: Residencial -->
-    <div class="service-card" onclick="openModal('Diseño Residencial')">
-      <div class="sc-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <div class="sc-market">Mercado Residencial</div>
-      <div class="sc-name">Diseños de Casa Habitación</div>
-      <div class="sc-desc">
-        Proyectos arquitectónicos completos para vivienda unifamiliar y multifamiliar,
-        desde el anteproyecto hasta planos ejecutivos y programaciones de obra.
-      </div>
-      <ul class="sc-features">
-        <li>Anteproyecto + renders</li>
-        <li>Planos arquitectónicos y estructurales</li>
-        <li>Gestión de permisos municipales</li>
-        <li>Especificaciones técnicas</li>
-      </ul>
-      <div class="sc-cta">
-        Contratar servicio
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </div>
-    </div>
+    </body>
+ </div>
 
-    <!-- Servicio 2: Comercial -->
-    <div class="service-card" onclick="openModal('Proyecto Comercial')">
-      <div class="sc-icon">
-        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-      </div>
-      <div class="sc-market">Mercado Comercial</div>
-      <div class="sc-name">Naves y Espacios Comerciales</div>
-      <div class="sc-desc">
-        Diseño y planificación de espacios comerciales, hoteles, bodegas y espacios logísticos optimizados para operación.
-      </div>
-      <ul class="sc-features">
-        <li>Diseño arquitectónico y funcional</li>
-        <li>Cálculo estructural</li>
-        <li>Instalaciones especiales</li>
-        <li>Cumplimiento normativo</li>
-        <li>Trámites y gestiones municipales</li>
-      </ul>
-      <div class="sc-cta">
-        Contratar servicio
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </div>
-    </div>
 
-    <!-- Servicio 3: Escolar -->
-    <div class="service-card" onclick="openModal('Diseño Escolar')">
-      <div class="sc-icon">
-        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-      </div>
-      <div class="sc-market">Mercado Escolar</div>
-      <div class="sc-name">Infraestructura Educativa</div>
-      <div class="sc-desc">
-        Especialistas en la Normativa IMSS vigente, usamos esos lineamientos tan exigentes como parámetros
-        de calidad para todos los proyectos fuera de esta normativa.
-      </div>
-      <ul class="sc-features">
-        <li>Diseño arquitectónico de espacios</li>
-        <li>Dictaminación de instalaciones</li>
-        <li>Construcción bajo normativas</li>
-        <li>Ampliaciones y mantenimientos</li>
-      </ul>
-      <div class="sc-cta">
-        Contratar servicio
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </div>
-    </div>
+<section class="gallery-section" id="obras"></section> 
 
-    <!-- Servicio 4: Supervisión -->
-    <div class="service-card" onclick="openModal('Supervisión de Obra')">
-      <div class="sc-icon">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </div>
-      <div class="sc-market">Autoconstrucción</div>
-      <div class="sc-name">Supervisión de Obra</div>
-      <div class="sc-desc">
-        Asesoría técnica para clientes que están autoconstruyendo. Visitas de supervisión,
-        dictámenes técnicos y resolución de problemas en obra.
-      </div>
-      <ul class="sc-features">
-        <li>Visitas periódicas a tu obra</li>
-        <li>Informe técnico por visita</li>
-        <li>Resolución de problemas constructivos</li>
-        <li>Asesoría en materiales, costos y trabajadores</li>
-      </ul>
-      <div class="sc-cta">
-        Contratar servicio
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </div>
-    </div>
-
-  </div><!-- /services-grid -->
-
-</section><!-- /services-section -->
 
 
 <!-- ════════════════════════════════════════════════════════════
@@ -1045,10 +1051,7 @@
 <footer class="footer">
   <div class="footer-logo">MI ARQUI. [on line] — Servicios de Arquitectura</div>
   <div class="footer-links">
-    <a href="#inicio">Inicio</a>
-    <a href="#obras">Portafolio</a>
-    <a href="#planes">Planes</a>
-    <a href="#testimonios">Testimonios</a>
+   
     <a href="#">Aviso de privacidad</a>
   </div>
   <div class="footer-copy">
@@ -1276,4 +1279,51 @@
 
 <script src="app.js"></script>
 </body>
+
+
+<link rel="stylesheet" href="redes sociales.css">
+<footer class="main-footer">
+  <div class="footer-container">
+    
+    <div class="footer-brand">
+      <h3>Follow us on!</h3>
+      
+    </div>
+
+    <div class="footer-social-block">
+      <ul class="ul">
+        
+        <li>
+          <a href="https://www.facebook.com/TU_PERFIL" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <span>Facebook</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https://x.com/TU_PERFIL" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <span>Twitter</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https://www.instagram.com/TU_PERFIL" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https://www.youtube.com/@Miarquis" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-youtube" aria-hidden="true"></i>
+            <span>YouTube</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</footer>
 </html>

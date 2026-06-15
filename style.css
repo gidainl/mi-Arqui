@@ -441,10 +441,16 @@ padding: 15px;
 
 }
 
+ #obras .gallery-section { 
+  background: var(--dark); 
+  padding: 70px 60px 160px; 
+  margin-bottom: 380px;
+}
+
    .gallery-section { 
   background: var(--dark); 
   padding: 70px 60px 160px; 
-  margin-bottom: 80px;
+  margin-bottom: 30px;
 }
 
 .gallery-header {
@@ -505,12 +511,12 @@ padding: 15px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-/* Primera foto ocupa 2 columnas en pantallas de laptop/PC */
+/* Primera foto ocupa 2 columnas en pantallas de laptop/PC 
 @media (min-width: 768px) {
   .gallery-item:first-child { 
     grid-column: span 3; 
   }
-}
+}*/
 
 .gi-img {
   aspect-ratio: 4/3;
@@ -533,8 +539,8 @@ padding: 15px;
   transform: scale(1.05); 
 }
 
-.gallery-item:first-child .gi-img { 
-  aspect-ratio: 16/9; 
+/*.gallery-item:first-child .gi-img { 
+  aspect-ratio: 16/9; */
 }
 
 /* ── TEXTO FLOTANTE CON EFECTO CINEMÁTICO ── */
@@ -608,8 +614,8 @@ padding: 15px;
 /* ─────────────────────────────────────────────────────────────
    7. SERVICIOS (TARJETAS)
 ───────────────────────────────────────────────────────────── */
-.services-section { background: var(--dark); padding: 100px 60px; }
-.guarderias-section { background: var(--dark); padding: 100px 60px; }
+.services-section { background: var(--dark); padding: 80px 60px; }
+.guarderias-section { background: var(--dark); padding: 80px 60px; }
 
 .services-intro {
   display: grid;
