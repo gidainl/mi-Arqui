@@ -1391,3 +1391,130 @@ padding: 15px;
 .cta-final::before {
   display: none;
 }
+
+/* ── FIX CALENDARIO — interactividad correcta ── */
+.step-panel {
+  display: none;
+  pointer-events: none;
+}
+.step-panel.active {
+  display: block;
+  pointer-events: all;
+  animation: fadeUp .3s ease;
+}
+
+/* Días del calendario — área de click amplia */
+.cal-day.available {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.cal-day.available:active {
+  transform: scale(.95);
+  background: rgba(200,184,154,.25);
+}
+
+/* Slots de hora */
+.ts-slot.available {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ts-slot.available:active {
+  transform: scale(.96);
+}
+
+/* Botón confirmar — transición suave al habilitarse */
+#confirmDateBtn {
+  transition: opacity .3s ease, box-shadow .25s;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FIX MÓVIL — desbordamiento horizontal
+═══════════════════════════════════════════════════════════ */
+
+/* Raíz: nunca permitir scroll horizontal */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ── NAV: el principal culpable ── */
+.nav {
+  /* Quitar border y border-radius que causan overflow en fixed */
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(200,184,154,.12);
+
+  /* Padding seguro en móvil */
+  padding: 16px 20px;
+
+  /* Asegurar que no se salga */
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+}
+
+/* En desktop recuperamos el padding amplio */
+@media (min-width: 901px) {
+  .nav {
+    padding: 20px 60px;
+  }
+  .nav.scrolled {
+    padding: 14px 60px;
+  }
+}
+
+.nav.scrolled {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── GALERÍA DE PLANOS: width:120% rompe todo ── */
+/*.gallery {
+  width: 100% !important;
+  max-width: 100%;
+  overflow-x: auto;       /* scroll interno si el contenido es ancho */
+ /* box-sizing: border-box;
+  margin: 0;
+  padding: 16px 0 40px; }
+*/
+
+/* ── Cualquier elemento hijo que pudiera sobresalir ── */
+/*#obras .gallery img {
+  flex-shrink: 0;
+}
+
+/* ── Secciones: padding lateral seguro en móvil ── */
+/*@media (max-width: 480px) {
+  .nav {
+    padding: 14px 16px;
+  }*/
+
+  .nav-logo {
+    font-size: 1.05rem;
+  }
+
+  .hero {
+    padding: 100px 16px 60px;
+  }
+/*
+  .video-section,
+  .gallery-section,
+  .services-section,
+  .guarderias-section,
+  .plans-section,
+  .testimonials-section,
+  .cta-final {
+    padding: 60px 16px;
+  }
+
+  .modal {
+    margin: 10px;
+    width: calc(100% - 20px);
+    max-height: 92vh;
+  }
+}*/
