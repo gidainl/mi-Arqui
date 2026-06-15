@@ -1393,7 +1393,7 @@ padding: 15px;
 }
 
 /* ── FIX CALENDARIO — interactividad correcta ── */
-.step-panel {
+/*.step-panel {
   display: none;
   pointer-events: none;
 }
@@ -1404,7 +1404,7 @@ padding: 15px;
 }
 
 /* Días del calendario — área de click amplia */
-.cal-day.available {
+/*.cal-day.available {
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -1415,7 +1415,7 @@ padding: 15px;
 }
 
 /* Slots de hora */
-.ts-slot.available {
+/*.ts-slot.available {
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -1494,7 +1494,7 @@ html, body {
     padding: 14px 16px;
   }*/
 
-  .nav-logo {
+  /*.nav-logo {
     font-size: 1.05rem;
   }
 
