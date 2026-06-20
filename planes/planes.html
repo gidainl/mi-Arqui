@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+<!-- ════════════════════════════════════════════════════════════
+  PLANES / MEMBRESÍAS
+════════════════════════════════════════════════════════════ -->
+<section class="plans-section" id="planes">
+
+  <div class="plans-intro">
+    <div class="section-eyebrow" style="justify-content:center">Tarifas</div>
+    <h2 class="section-title">Elige tu <em>plan</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-lead">
+      Planes diseñados para cada etapa de tu proyecto. Todos incluyen una consulta
+      inicial gratuita de 30 minutos para evaluar tu caso.
+    </p>
+  </div>
+
+  <div class="plans-grid">
+
+    <!-- Plan 1: Consultoría -->
+    <div class="plan-card">
+      <div class="plan-market">Autoconstrucción</div>
+      <div class="plan-name">Consultoría Técnica</div>
+      <div class="plan-desc">Para quien necesita orientación puntual antes de iniciar o durante la obra.</div>
+      <div class="plan-price">
+        <span class="pp-currency">$</span>
+        <span class="pp-amount" id="price1">1,100.00</span>
+        <span class="pp-period">/ visita</span>
+      </div>
+      <div class="plan-price-note">Por visita a obra · Sin contrato mínimo</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Visita a obra (hasta 2h)
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Informe técnico escrito
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Recomendaciones de mejora
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Seguimiento por WhatsApp 48h
+        </li>
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Planos o diseño incluido
+        </li>
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Supervisión continua
+        </li>
+      </ul>
+        <button class="plan-btn plan-btn-solid"
+          onclick="openModal('Consultoría Técnica')"
+          style="width:100%;cursor:pointer;">
+    💳 Pagar · Agendar Cita
+  </button>
+  </div>
+
+    <!-- Plan 2: Supervisión (DESTACADO) -->
+    <div class="plan-card featured">
+      <div class="plan-popular">MÁS CONTRATADO</div>
+      <div class="plan-market">Autoconstrucción</div>
+      <div class="plan-name">Supervisión de Obra</div>
+      <div class="plan-desc">Acompañamiento continuo para proyectos en ejecución. Ideal para autoconstrucción.</div>
+      <div class="plan-price">
+        <span class="pp-currency">$</span>
+        <span class="pp-amount" id="price2">6,000.00</span>
+        <span class="pp-period">/ mes</span>
+      </div>
+      <div class="plan-price-note">2 visitas mensuales · Contrato mínimo 2 meses</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          2 visitas supervisión / mes
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Informe técnico por visita
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Bitácora de obra digital
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Asesoría ilimitada por WhatsApp
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Revisión de presupuestos
+        </li>
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Proyecto arquitectónico
+        </li>
+      </ul>
+        <button class="plan-btn plan-btn-solid"
+          onclick="openModal('Supervisión de Obra')"
+          style="width:100%;cursor:pointer;">
+    💳 Pagar · Agendar Cita
+  </button>
+  </div>
+    <!-- Plan 3: Proyecto Residencial Completo -->
+    <div class="plan-card">
+      <div class="plan-market">Residencial</div>
+      <div class="plan-name">Proyecto Completo</div>
+      <div class="plan-desc">Diseño arquitectónico integral para casa habitación o desarrollo habitacional.</div>
+      <div class="plan-price">
+        <span class="pp-currency">$</span>
+        <span class="pp-amount" id="price3">98.00</span>
+        <span class="pp-period">/ m²</span>
+      </div>
+      <div class="plan-price-note">Precio por m² de construcción · Mínimo 45 m²</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Anteproyecto + renders 3D
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Planos arquitectónicos
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Planteamiento estructural
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Instalaciones hidráulicas y eléctricas
+        </li>
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Gestión de licencia de construcción
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          3 revisiones de diseño
+        </li>
+      </ul>
+        <button class="plan-btn plan-btn-outline"
+          onclick="openModal('Diseño Residencial')"
+          style="width:100%;cursor:pointer;">
+    Agendar Cita →
+  </button>
+    </div>
+
+    <!-- Plan 4: Especializado -->
+    <div class="plan-card">
+      <div class="plan-market">Comercial · Escolar</div>
+      <div class="plan-name">Proyecto Especializado</div>
+      <div class="plan-desc">Soluciones para espacios comerciales, hoteleria, planteles educativos y gubernamentales.</div>
+      <div class="plan-price">
+        <span class="pp-currency" style="font-size:1rem;color:var(--stone-l)">Cotización</span>
+        <span class="pp-amount" style="font-size:2rem;">A medida</span>
+      </div>
+      <div class="plan-price-note">Precio según alcance y m² del proyecto</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Todo lo del Plan Residencial
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Estudio de normativa específica
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Coordinación con ingenieros
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Gestión IMSS / dependencias
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Supervisión de obra incluida
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Atención personalizada
+        </li>
+      </ul>
+      <button class="plan-btn plan-btn-outline"
+          onclick="openModal('Proyecto Especializado')"
+          style="width:100%;cursor:pointer;">
+    Agendar Cita →
+  </button>
+   
+ </div><!-- /plans-grid -->
+</section><!-- /plans-section -->
+ 
+
+  <p class="plans-note">
+    * Todos los precios son en MXN, no incluyen IVA · Consulta inicial gratuita de 30 min vía telefónica ·
+    Formas de pago: efectivo, transferencia, tarjeta *
+  </p>
+
+<!-- ════════════════════════════════════════════════════════════
+  MODAL DE AGENDA DE CITAS
+════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+
+    <div class="modal-header">
+      <div>
+        <div class="modal-plan-tag" id="modalPlanTag">Servicio</div>
+        <div class="modal-title"    id="modalTitle">Agendar Consulta</div>
+      </div>
+      <div class="modal-close" onclick="closeModal()">✕</div>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-steps">
+        <div class="ms-step active" id="step-tab-1">
+          <div class="ms-num">1</div><div class="ms-label">Tus datos</div>
+        </div>
+        <div class="ms-step" id="step-tab-2">
+          <div class="ms-num">2</div><div class="ms-label">Fecha y hora</div>
+        </div>
+        <div class="ms-step" id="step-tab-3">
+          <div class="ms-num">3</div><div class="ms-label">Confirmar</div>
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="step-panel active" id="step-1">
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">
+          Cuéntame un poco sobre ti y tu proyecto para poder preparar mejor nuestra reunión.
+        </p>
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Nombre completo *</label>
+            <input type="text" id="cl_name" placeholder="Tu nombre">
+          </div>
+          <div class="form-field">
+            <label>Teléfono / WhatsApp *</label>
+            <input type="tel" id="cl_phone" placeholder="10 dígitos">
+          </div>
+          <div class="form-field">
+            <label>Email *</label>
+            <input type="email" id="cl_email" placeholder="correo@ejemplo.com">
+          </div>
+          <div class="form-field">
+            <label>Ciudad / Ubicación del proyecto</label>
+            <input type="text" id="cl_city" placeholder="Ciudad, Estado">
+          </div>
+        </div>
+        <div class="form-grid g1">
+          <div class="form-field">
+            <label>Describe brevemente tu proyecto o necesidad *</label>
+            <textarea id="cl_desc" rows="3"
+              placeholder="Ej: Quiero construir una casa de 120m² en un terreno en esquina..."></textarea>
+          </div>
+          <div class="form-field" style="margin-top:10px;">
+            <label>Presupuesto aproximado (opcional)</label>
+            <select id="cl_budget">
+              <option value="">Prefiero no indicarlo por ahora</option>
+              <option>Menos de $500,000 MXN</option>
+              <option>$500,000 – $1,500,000 MXN</option>
+              <option>$1,500,000 – $3,000,000 MXN</option>
+              <option>Más de $3,000,000 MXN</option>
+              <option>Aún no definido</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span></span>
+          <button class="modal-next-btn" onclick="goToStep(2)">Elegir Fecha →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-panel" id="step-2">
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">
+          Selecciona la fecha y hora de tu preferencia. Las reuniones pueden ser presenciales o por videollamada.
+        </p>
+        <div class="cal-header">
+          <div class="cal-month" id="calMonth">—</div>
+          <div class="cal-nav">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="cal-days-header">
+          <div class="cal-day-name">Dom</div>
+          <div class="cal-day-name">Lun</div>
+          <div class="cal-day-name">Mar</div>
+          <div class="cal-day-name">Mié</div>
+          <div class="cal-day-name">Jue</div>
+          <div class="cal-day-name">Vie</div>
+          <div class="cal-day-name">Sáb</div>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="timeslots-label">Horarios disponibles</div>
+        <div class="timeslots-grid" id="timeslotsGrid"></div>
+        <div class="booking-summary" id="bookingSummary">
+          <div class="bs-row"><span>Servicio</span><strong id="bs_service">—</strong></div>
+          <div class="bs-row"><span>Fecha</span><strong id="bs_date">—</strong></div>
+          <div class="bs-row"><span>Hora</span><strong id="bs_time">—</strong></div>
+          <div class="bs-row"><span>Modalidad</span><strong>Presencial o videollamada</strong></div>
+          <div class="bs-row"><span>Duración</span><strong>30 – 60 min</strong></div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-back-btn" onclick="goToStep(1)">← Atrás</button>
+          <button class="modal-next-btn" id="confirmDateBtn"
+                  onclick="goToStep(3)"
+                  style="opacity:.4;pointer-events:none">
+            Confirmar →
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-panel" id="step-3">
+        <div style="text-align:center;padding:20px 0 10px;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(61,107,79,.2);
+                      border:1.5px solid var(--green-l);display:flex;align-items:center;
+                      justify-content:center;margin:0 auto 16px;">
+            <svg width="28" height="28" viewBox="0 0 24 24"
+                 fill="none" stroke="#6a9e7a" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div style="font-family:var(--fp);font-size:1.5rem;font-weight:700;
+                      color:var(--stone-l);margin-bottom:8px;">¡Solicitud enviada!</div>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.7;
+                    max-width:400px;margin:0 auto 24px;">
+            Recibí tu solicitud de consulta. Te confirmaré la cita en menos de
+            <strong style="color:var(--stone-l)">2 horas</strong> por WhatsApp y email.
+          </p>
+          <div style="margin-top: 20px; text-align: center;">
+  <a id="whatsappConfirmBtn"
+     href="#"
+     target="_blank"
+     rel="noopener"
+     style="
+       display: none;
+       align-items: center;
+       justify-content: center;
+       gap: 10px;
+       background: #25D366;
+       color: #fff;
+       font-family: var(--fb);
+       font-size: .82rem;
+       letter-spacing: 3px;
+       text-transform: uppercase;
+       font-weight: 700;
+       padding: 14px 28px;
+       border-radius: 8px;
+       text-decoration: none;
+       transition: background .25s;
+     ">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15
+               -.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075
+               -.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059
+               -.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52
+               .149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52
+               -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51
+               -.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372
+               -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074
+               .149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625
+               .712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413
+               .248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.522 5.854L.057 23.882
+               l6.186-1.438A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z
+               M12 22c-1.891 0-3.667-.5-5.2-1.373l-.373-.217-3.873.9.976-3.77
+               -.24-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10
+               -4.477 10-10 10z"/>
+    </svg>
+    Confirmar cita por WhatsApp
+  </a>
+</div>
+        </div>
+        <div style="background:rgba(200,184,154,.06);border:1px solid rgba(200,184,154,.15);
+                    border-radius:10px;padding:18px;margin-bottom:20px;">
+          <div class="bs-row"><span>Nombre</span><strong id="conf_name">—</strong></div>
+          <div class="bs-row"><span>Servicio</span><strong id="conf_service">—</strong></div>
+          <div class="bs-row"><span>Fecha y hora</span><strong id="conf_datetime">—</strong></div>
+          <div class="bs-row"><span>Contacto</span><strong id="conf_contact">—</strong></div>
+        </div>
+        <p style="font-size:.8rem;color:rgba(250,248,245,.4);text-align:center;line-height:1.6;">
+          Si necesitas cambiar tu cita, contáctame directamente a<br>
+          <strong style="color:var(--stone)">WhatsApp: 8186052831</strong> o
+          <strong style="color:var(--stone)">arquitecturayseguridad@hotmail.com</strong>
+        </p>
+        <div class="modal-footer" style="justify-content:center;">
+          <div id="stripePayBtn" style="display:none;text-align:center;margin-bottom:16px;">
+            <p style="font-size:.8rem;color:rgba(15,14,13,.5);margin-bottom:10px;">
+              Para confirmar tu cita, realiza el pago del anticipo:
+            </p>
+            <a id="stripePayLink"
+               href="#"
+               target="_blank"
+               style="display:inline-block;background:#635bff;color:#fff;
+                      font-family:'Sora',sans-serif;font-weight:700;
+                      font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
+                      padding:13px 28px;border-radius:8px;text-decoration:none;">
+              💳 Pagar con tarjeta (Stripe)
+            </a>
+          </div>
+          <button class="modal-next-btn" onclick="closeModal()">Cerrar</button>
+        </div>
+      </div>
+
+    </div><!-- /modal-body -->
+  </div><!-- /modal -->
+</div><!-- /modal-overlay -->
+
+
+</body>
+
+<script src="/app.js"></script>
+</html>

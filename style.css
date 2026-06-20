@@ -1199,7 +1199,7 @@ padding: 15px;
 /* ─────────────────────────────────────────────────────────────
    12. TESTIMONIOS
 ───────────────────────────────────────────────────────────── */
-.testimonials-section { background: var(--dark); padding: 100px 60px; }
+.testimonials-section { background: var(--dark); padding: 80px 60px; }
 .testimonials-header {
   display: flex; align-items: flex-end;
   justify-content: space-between;

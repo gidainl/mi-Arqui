@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+<!-- ════════════════════════════════════════════════════════════
+  SERVICIOS — ARQUITECTURA Y OBRA CIVIL
+════════════════════════════════════════════════════════════ -->
+<section class="services-section" id="servicios">
+
+  <div class="services-intro">
+    <div>
+      <div class="section-eyebrow">Especialidades</div>
+      <h2 class="section-title">Arquitectura —<br>obra <em>civil</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        Desde la asesoría y la supervisión de las obras que estás ejecutando por tu cuenta, hasta el diseño de obras especializadas
+        o de carácter residencial, ejecutamos todo tipo de trabajos relacionados con la Arquitectura basados en 15 años de experiencia.
+      </p>
+    </div>
+    <div style="padding-top:20px;">
+      <p style="font-size:.9rem;color:rgba(250,248,245,.55);line-height:1.8;">
+        Con más de <strong style="color:var(--stone-l)">15 años de experiencia</strong> ejerciendo la Arquitectura tanto en diseños,
+        planeaciones y en obra civil, conjugamos todas las experiencias para aportar servicios de calidad con enfoque en lo práctico
+        y esencial que nuestros clientes necesitan.
+      </p>
+      <div class="services-badges">
+        <div class="badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Trabajo de campo: 75%
+        </div>
+        <div class="badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Trabajo en escritorio: 25%
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjetas de servicios generales — grid de 2 columnas -->
+  <div class="services-grid">
+
+    <!-- Servicio 1: Residencial -->
+    <div class="service-card" onclick="openModal('Diseño Residencial')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="sc-market">Mercado Residencial</div>
+      <div class="sc-name">Diseños de Casa Habitación</div>
+      <div class="sc-desc">
+        Proyectos arquitectónicos completos para vivienda unifamiliar y multifamiliar,
+        desde el anteproyecto hasta planos ejecutivos y programaciones de obra.
+      </div>
+      <ul class="sc-features">
+        <li>Anteproyecto + renders</li>
+        <li>Planos arquitectónicos y estructurales</li>
+        <li>Gestión de permisos municipales</li>
+        <li>Especificaciones técnicas</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- Servicio 2: Comercial -->
+    <div class="service-card" onclick="openModal('Proyecto Comercial')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      </div>
+      <div class="sc-market">Mercado Comercial</div>
+      <div class="sc-name">Naves y Espacios Comerciales</div>
+      <div class="sc-desc">
+        Diseño y planificación de espacios comerciales, hoteles, bodegas y espacios logísticos optimizados para operación.
+      </div>
+      <ul class="sc-features">
+        <li>Diseño arquitectónico y funcional</li>
+        <li>Cálculo estructural</li>
+        <li>Instalaciones especiales</li>
+        <li>Cumplimiento normativo</li>
+        <li>Trámites y gestiones municipales</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- Servicio 3: Escolar -->
+    <div class="service-card" onclick="openModal('Diseño Escolar')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      </div>
+      <div class="sc-market">Mercado Escolar</div>
+      <div class="sc-name">Infraestructura Educativa</div>
+      <div class="sc-desc">
+        Especialistas en la Normativa IMSS vigente, usamos esos lineamientos tan exigentes como parámetros
+        de calidad para todos los proyectos fuera de esta normativa.
+      </div>
+      <ul class="sc-features">
+        <li>Diseño arquitectónico de espacios</li>
+        <li>Dictaminación de instalaciones</li>
+        <li>Construcción bajo normativas</li>
+        <li>Ampliaciones y mantenimientos</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+    <!-- Servicio 4: Supervisión -->
+    <div class="service-card" onclick="openModal('Supervisión de Obra')">
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="sc-market">Autoconstrucción</div>
+      <div class="sc-name">Supervisión de Obra</div>
+      <div class="sc-desc">
+        Asesoría técnica para clientes que están autoconstruyendo. Visitas de supervisión,
+        dictámenes técnicos y resolución de problemas en obra.
+      </div>
+      <ul class="sc-features">
+        <li>Visitas periódicas a tu obra</li>
+        <li>Informe técnico por visita</li>
+        <li>Resolución de problemas constructivos</li>
+        <li>Asesoría en materiales, costos y trabajadores</li>
+      </ul>
+      <div class="sc-cta">
+        Contratar servicio
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+
+  </div><!-- /services-grid -->
+
+</section><!-- /services-section -->
+
+<!-- ════════════════════════════════════════════════════════════
+  GALERÍA — PROTAFOLIO (obras)
+════════════════════════════════════════════════════════════ -->
+
+
+  <!-- Encabezado del portafolio de obras -->
+  <div class="gallery-header">
+    <div>
+      <div class="section-eyebrow">Portafolio</div>
+      <h2 class="section-title">Algunas obras <em>realizadas</em></h2>
+    </div>
+    <div class="gallery-filter">
+      <button class="gf-btn active" data-filter="all">Todos</button>
+      <button class="gf-btn" data-filter="residenciales">Residenciales</button>
+      <button class="gf-btn" data-filter="comerciales">Comerciales</button>
+      <button class="gf-btn" data-filter="educativos">Educativos</button>
+      <button class="gf-btn" data-filter="supervision">Supervisión</button>
+    </div>
+  </div>
+
+  <!-- Cuadrícula de obras -->
+  <div class="gallery-wrapper">
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- OBRA 1 -->
+      <div class="gallery-item" data-category="comerciales">
+        <div class="gi-img">
+          <img src="/img/webp/5 eventos cumbres.png" alt="Salon de eventos Lozano">
+        </div>
+        <div class="gi-overlay">
+          <div class="gi-category">Comerciales</div>
+          <div class="gi-title">Salon de eventos Lozano</div>
+          <div class="gi-location">Monterrey, Nuevo Leon · 2019</div>
+        </div>
+      </div>
+
+      <!-- OBRA 2 -->
+      <div class="gallery-item" data-category="educativos">
+        <div class="gi-img">
+          <img src="/img/webp/3 educando aprende .png" alt="Guarderia IMSS">
+        </div>
+        <div class="gi-overlay">
+          <div class="gi-category">Educativos</div>
+          <div class="gi-title">Guarderia IMSS U-1580</div>
+          <div class="gi-location">Monterrey, Nuevo Leon · 2017</div>
+        </div>
+      </div>
+
+      <!-- OBRA 3 -->
+      <div class="gallery-item" data-category="educativos">
+        <div class="gi-img">
+          <img src="/img/webp/4 naha escobedo.png" alt="NAHA Colegio">
+        </div>
+        <div class="gi-overlay">
+          <div class="gi-category">Educativos</div>
+          <div class="gi-title">Guarderia NAHA U-1607</div>
+          <div class="gi-location">Escobedo, Nuevo Leon · 2018</div>
+        </div>
+      </div>
+
+      <!-- OBRA 4 -->
+      <div class="gallery-item" data-category="comerciales">
+        <div class="gi-img">
+          <img src="/img/webp/8 oficinas CIQA.png" alt="Oficinas CIQA 2023">
+        </div>
+        <div class="gi-overlay">
+          <div class="gi-category">Comerciales</div>
+          <div class="gi-title">Oficinas CIQA 2023</div>
+          <div class="gi-location">Saltillo, Coahuila · 2023</div>
+        </div>
+      </div>
+
+      <!-- OBRA 5 -->
+      <div class="gallery-item" data-category="educativos">
+        <div class="gi-img">
+          <img src="/img/webp/7 Estancias EPIM.png" alt="Guarderia IMSS EPIM">
+        </div>
+        <div class="gi-overlay">
+          <div class="gi-category">Educativos</div>
+          <div class="gi-title">Guarderia IMSS EPIM</div>
+          <div class="gi-location">Guadalupe, Nuevo Leon · 2021</div>
+        </div>
+      </div>
+
+      <!-- OBRA 6 -->
+      <div class="gallery-item" data-category="comerciales">
+        <div class="gi-img">
+          <img src="/img/webp/6 torre 411.png" alt="Torre 411">
+        </div>
+        <div class="gi-overlay">
+          <div class="gi-category">Comerciales</div>
+          <div class="gi-title">Torre 411</div>
+          <div class="gi-location">Monterrey, Nuevo Leon · 2020</div>
+        </div>
+      </div>
+
+       <!-- OBRA 7 -->
+      <div class="gallery-item" data-category="comerciales">
+        <div class="gi-img">
+          <img src="/img/webp/9 envases universales.png" alt="Envases">
+        </div>
+        <div class="gi-overlay">
+          <div class="gi-category">Comerciales</div>
+          <div class="gi-title">Envases universales </div>
+          <div class="gi-location">San Nicolas, Nuevo Leon · 2026</div>
+        </div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+
+    <div class="gallery-cta">
+      <a href="https://wa.me/528186052831?text=Hola,%20vi%20tu%20informacion%20en%20Mi%20Arqui%20on%20line%20y%20me%20gustaría%20solicitar%20un%20portafolio%20completo%20de%20proyectos."
+         target="_blank"
+         class="btn-ghost"
+         style="display:inline-block;text-decoration:none;text-align:center;">
+        Solicita portafolio completo →
+      </a>
+    </div>
+
+  </div><!-- /gallery-wrapper -->
+
+</section><!-- /gallery-section -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+  MODAL DE AGENDA DE CITAS
+════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+
+    <div class="modal-header">
+      <div>
+        <div class="modal-plan-tag" id="modalPlanTag">Servicio</div>
+        <div class="modal-title"    id="modalTitle">Agendar Consulta</div>
+      </div>
+      <div class="modal-close" onclick="closeModal()">✕</div>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-steps">
+        <div class="ms-step active" id="step-tab-1">
+          <div class="ms-num">1</div><div class="ms-label">Tus datos</div>
+        </div>
+        <div class="ms-step" id="step-tab-2">
+          <div class="ms-num">2</div><div class="ms-label">Fecha y hora</div>
+        </div>
+        <div class="ms-step" id="step-tab-3">
+          <div class="ms-num">3</div><div class="ms-label">Confirmar</div>
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="step-panel active" id="step-1">
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">
+          Cuéntame un poco sobre ti y tu proyecto para poder preparar mejor nuestra reunión.
+        </p>
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Nombre completo *</label>
+            <input type="text" id="cl_name" placeholder="Tu nombre">
+          </div>
+          <div class="form-field">
+            <label>Teléfono / WhatsApp *</label>
+            <input type="tel" id="cl_phone" placeholder="10 dígitos">
+          </div>
+          <div class="form-field">
+            <label>Email *</label>
+            <input type="email" id="cl_email" placeholder="correo@ejemplo.com">
+          </div>
+          <div class="form-field">
+            <label>Ciudad / Ubicación del proyecto</label>
+            <input type="text" id="cl_city" placeholder="Ciudad, Estado">
+          </div>
+        </div>
+        <div class="form-grid g1">
+          <div class="form-field">
+            <label>Describe brevemente tu proyecto o necesidad *</label>
+            <textarea id="cl_desc" rows="3"
+              placeholder="Ej: Quiero construir una casa de 120m² en un terreno en esquina..."></textarea>
+          </div>
+          <div class="form-field" style="margin-top:10px;">
+            <label>Presupuesto aproximado (opcional)</label>
+            <select id="cl_budget">
+              <option value="">Prefiero no indicarlo por ahora</option>
+              <option>Menos de $500,000 MXN</option>
+              <option>$500,000 – $1,500,000 MXN</option>
+              <option>$1,500,000 – $3,000,000 MXN</option>
+              <option>Más de $3,000,000 MXN</option>
+              <option>Aún no definido</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span></span>
+          <button class="modal-next-btn" onclick="goToStep(2)">Elegir Fecha →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-panel" id="step-2">
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">
+          Selecciona la fecha y hora de tu preferencia. Las reuniones pueden ser presenciales o por videollamada.
+        </p>
+        <div class="cal-header">
+          <div class="cal-month" id="calMonth">—</div>
+          <div class="cal-nav">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="cal-days-header">
+          <div class="cal-day-name">Dom</div>
+          <div class="cal-day-name">Lun</div>
+          <div class="cal-day-name">Mar</div>
+          <div class="cal-day-name">Mié</div>
+          <div class="cal-day-name">Jue</div>
+          <div class="cal-day-name">Vie</div>
+          <div class="cal-day-name">Sáb</div>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="timeslots-label">Horarios disponibles</div>
+        <div class="timeslots-grid" id="timeslotsGrid"></div>
+        <div class="booking-summary" id="bookingSummary">
+          <div class="bs-row"><span>Servicio</span><strong id="bs_service">—</strong></div>
+          <div class="bs-row"><span>Fecha</span><strong id="bs_date">—</strong></div>
+          <div class="bs-row"><span>Hora</span><strong id="bs_time">—</strong></div>
+          <div class="bs-row"><span>Modalidad</span><strong>Presencial o videollamada</strong></div>
+          <div class="bs-row"><span>Duración</span><strong>30 – 60 min</strong></div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-back-btn" onclick="goToStep(1)">← Atrás</button>
+          <button class="modal-next-btn" id="confirmDateBtn"
+                  onclick="goToStep(3)"
+                  style="opacity:.4;pointer-events:none">
+            Confirmar →
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-panel" id="step-3">
+        <div style="text-align:center;padding:20px 0 10px;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(61,107,79,.2);
+                      border:1.5px solid var(--green-l);display:flex;align-items:center;
+                      justify-content:center;margin:0 auto 16px;">
+            <svg width="28" height="28" viewBox="0 0 24 24"
+                 fill="none" stroke="#6a9e7a" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div style="font-family:var(--fp);font-size:1.5rem;font-weight:700;
+                      color:var(--stone-l);margin-bottom:8px;">¡Solicitud enviada!</div>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.7;
+                    max-width:400px;margin:0 auto 24px;">
+            Recibí tu solicitud de consulta. Te confirmaré la cita en menos de
+            <strong style="color:var(--stone-l)">2 horas</strong> por WhatsApp y email.
+          </p>
+          <div style="margin-top: 20px; text-align: center;">
+  <a id="whatsappConfirmBtn"
+     href="#"
+     target="_blank"
+     rel="noopener"
+     style="
+       display: none;
+       align-items: center;
+       justify-content: center;
+       gap: 10px;
+       background: #25D366;
+       color: #fff;
+       font-family: var(--fb);
+       font-size: .82rem;
+       letter-spacing: 3px;
+       text-transform: uppercase;
+       font-weight: 700;
+       padding: 14px 28px;
+       border-radius: 8px;
+       text-decoration: none;
+       transition: background .25s;
+     ">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15
+               -.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075
+               -.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059
+               -.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52
+               .149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52
+               -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51
+               -.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372
+               -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074
+               .149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625
+               .712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413
+               .248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.522 5.854L.057 23.882
+               l6.186-1.438A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z
+               M12 22c-1.891 0-3.667-.5-5.2-1.373l-.373-.217-3.873.9.976-3.77
+               -.24-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10
+               -4.477 10-10 10z"/>
+    </svg>
+    Confirmar cita por WhatsApp
+  </a>
+</div>
+        </div>
+        <div style="background:rgba(200,184,154,.06);border:1px solid rgba(200,184,154,.15);
+                    border-radius:10px;padding:18px;margin-bottom:20px;">
+          <div class="bs-row"><span>Nombre</span><strong id="conf_name">—</strong></div>
+          <div class="bs-row"><span>Servicio</span><strong id="conf_service">—</strong></div>
+          <div class="bs-row"><span>Fecha y hora</span><strong id="conf_datetime">—</strong></div>
+          <div class="bs-row"><span>Contacto</span><strong id="conf_contact">—</strong></div>
+        </div>
+        <p style="font-size:.8rem;color:rgba(250,248,245,.4);text-align:center;line-height:1.6;">
+          Si necesitas cambiar tu cita, contáctame directamente a<br>
+          <strong style="color:var(--stone)">WhatsApp: 8186052831</strong> o
+          <strong style="color:var(--stone)">arquitecturayseguridad@hotmail.com</strong>
+        </p>
+        <div class="modal-footer" style="justify-content:center;">
+          <div id="stripePayBtn" style="display:none;text-align:center;margin-bottom:16px;">
+            <p style="font-size:.8rem;color:rgba(15,14,13,.5);margin-bottom:10px;">
+              Para confirmar tu cita, realiza el pago del anticipo:
+            </p>
+            <a id="stripePayLink"
+               href="#"
+               target="_blank"
+               style="display:inline-block;background:#635bff;color:#fff;
+                      font-family:'Sora',sans-serif;font-weight:700;
+                      font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
+                      padding:13px 28px;border-radius:8px;text-decoration:none;">
+              💳 Pagar con tarjeta (Stripe)
+            </a>
+          </div>
+          <button class="modal-next-btn" onclick="closeModal()">Cerrar</button>
+        </div>
+      </div>
+
+    </div><!-- /modal-body -->
+  </div><!-- /modal -->
+</div><!-- /modal-overlay -->
+
+
+</body>
+
+
+<script src="/app.js"></script>
+</html>

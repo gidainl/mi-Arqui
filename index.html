@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,186 +22,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* ══════════════════════════════════════════════
-       CORRECCIONES DE CENTRADO Y FONDOS
-    ══════════════════════════════════════════════ */
-
-    /* --- Galería de planos (curriculum) --- */
-    .curriculum-block {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 24px 40px;
-      text-align: center;
-    }
-    .curriculum-block .section-eyebrow {
-      justify-content: center;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-      align-items: center;
-      margin-top: 32px;
-    }
-    .gallery img {
-      width: calc(20% - 16px);
-      min-width: 140px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
-    }
-
-    /* --- Galería de obras (portafolio) --- */
-    .gallery-section {
-      background: var(--bg, #0f0e0d);
-    }
-    .gallery-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-    }
-    .gallery-header {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 24px 32px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .gallery-item:first-child {
-      grid-column: span 1; /* sin doble columna, grilla limpia de 3 */
-    }
-    @media (max-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .gallery img {
-        width: calc(33% - 12px);
-      }
-    }
-    @media (max-width: 480px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-      .gallery img {
-        width: 100%;
-      }
-    }
-
-    /* --- Guarderias section --- */
-    .guarderias-section {
-      background: var(--bg, #0f0e0d);
-      padding: 80px 24px;
-    }
-    .guarderias-intro {
-      max-width: 1200px;
-      margin: 0 auto 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .guarderias-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 900px) {
-      .guarderias-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .guarderias-intro {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media (max-width: 600px) {
-      .guarderias-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* --- Servicios section --- */
-    .services-section {
-      background: var(--bg, #0f0e0d);
-      padding: 80px 24px;
-    }
-    .services-intro {
-      max-width: 1200px;
-      margin: 0 auto 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .services-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 700px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-      .services-intro {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Asegurar que service-card y guarderias-card tengan fondo propio */
-    .service-card,
-    .guarderias-card {
-      background: rgba(200,184,154,.06);
-      border: 1px solid rgba(200,184,154,.12);
-      border-radius: 12px;
-      padding: 28px 24px;
-      cursor: pointer;
-      transition: border-color .25s, transform .2s;
-    }
-    .service-card:hover,
-    .guarderias-card:hover {
-      border-color: rgba(200,184,154,.35);
-      transform: translateY(-3px);
-    }
-
-    /* Badges de servicio */
-    .services-badges {
-      margin-top: 24px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .badge-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .82rem;
-      color: var(--stone-l, #c8b89a);
-    }
-
-    /* Gallery CTA */
-    .gallery-cta {
-      text-align: center;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
-
+  <link rel="stylesheet" href="redes-sociales.css">
+ 
 <!-- ════════════════════════════════════════════════════════════
   NAVIGATION
 ════════════════════════════════════════════════════════════ -->
@@ -210,10 +32,10 @@
     <span>Mi ARQUI.</span> on line
   </a>
   <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#guarderias">Guarderias</a></li>
-    <li><a href="#planes">Planes</a></li>
-    <li><a href="#obras">Portafolio</a></li>
+    <li><a href="servicios/servicios.html">Servicios</a></li>
+    <li><a href="guarderias/guarderias.html">Guarderias</a></li>
+    <li><a href="planes/planes.html">Planes</a></li>
+    <li><a href="servicios/servicios.html#galleryGrid">Portafolio</a></li>
   </ul>
   <button class="nav-cta" onclick="openModal('Consulta Inicial')">Agendar Cita</button>
   <div class="nav-hamburger" id="hamburger">
@@ -238,11 +60,13 @@
       sin papeleos, sin complicaciones y adecuados a tu presupuesto.
     </p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
-        Ver Planes de Servicio
+      <a class="btn-primary" href="planes/planes.html">Ver Planes de Servicio </a>
+      <!-- onclick="document.getElementById('/planes').scrollIntoView({behavior:'smooth'})"> -->
+     
       </button>
-      <a class="btn-ghost" href="#galleryGrid">Ver Portafolio</a>
+      <a class="btn-ghost" href="servicios/servicios.html#galleryGrid">Ver Portafolio</a>
     </div>
+
     <div class="hero-stats">
       <div class="hs-item">
         <span class="hs-num" id="stat-proyectos">+00</span>
@@ -250,7 +74,7 @@
       </div>
       <div class="hs-item">
         <span class="hs-num" id="stat-anos">00</span>
-        <span class="hs-lbl">Años de experiencia</span>
+        <span class="hs-lbl">Anos de experiencia</span>
       </div>
       <div class="hs-item">
         <span class="hs-num" id="stat-clientes">+00</span>
@@ -263,7 +87,9 @@
     </div>
   </div>
 </section>
-
+</head>
+<body>
+  
 <!-- ════════════════════════════════════════════════════════════
   VIDEO CENTRAL
 ════════════════════════════════════════════════════════════ -->
@@ -288,7 +114,7 @@
     <div class="video-caption">
       <div class="vc-text">
         <div class="vc-title">[guarderia linda vista / showreel 2021]</div>
-        <div class="vc-desc">dirección: [linda vista] · producción: [supervision de obra] · [guadalupe, 2021]</div>
+        <div class="vc-desc">dirección: [linda vista] · producción: [supervision de obra] · [Guadalupe, 2021]</div>
       </div>
       <div class="vc-chapters">
         <span class="vcc-item">00:00 patio de serv.</span>
@@ -305,6 +131,7 @@
 <!-- ════════════════════════════════════════════════════════════
   SERVICIOS — ARQUITECTURA Y OBRA CIVIL
 ════════════════════════════════════════════════════════════ -->
+<!--
 <section class="services-section" id="servicios">
 
   <div class="services-intro">
@@ -337,9 +164,11 @@
   </div>
 
   <!-- Tarjetas de servicios generales — grid de 2 columnas -->
+   <!--
   <div class="services-grid">
 
     <!-- Servicio 1: Residencial -->
+     <!--
     <div class="service-card" onclick="openModal('Diseño Residencial')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -363,6 +192,7 @@
     </div>
 
     <!-- Servicio 2: Comercial -->
+     <!--
     <div class="service-card" onclick="openModal('Proyecto Comercial')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
@@ -386,6 +216,7 @@
     </div>
 
     <!-- Servicio 3: Escolar -->
+     <!--
     <div class="service-card" onclick="openModal('Diseño Escolar')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
@@ -409,6 +240,7 @@
     </div>
 
     <!-- Servicio 4: Supervisión -->
+     <!--
     <div class="service-card" onclick="openModal('Supervisión de Obra')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -432,7 +264,7 @@
     </div>
 
   </div><!-- /services-grid -->
-
+<!--
 </section><!-- /services-section -->
 
 <!-- ════════════════════════════════════════════════════════════
@@ -441,6 +273,7 @@
 
 
   <!-- Encabezado del portafolio de obras -->
+   <!--
   <div class="gallery-header">
     <div>
       <div class="section-eyebrow">Portafolio</div>
@@ -456,13 +289,15 @@
   </div>
 
   <!-- Cuadrícula de obras -->
+   <!--
   <div class="gallery-wrapper">
     <div class="gallery-grid" id="galleryGrid">
 
       <!-- OBRA 1 -->
+       <!--
       <div class="gallery-item" data-category="comerciales">
         <div class="gi-img">
-          <img src="img/5-eventos-cumbres.webp" alt="Salon de eventos Lozano">
+          <img src="img/webp/5 eventos cumbres.png" alt="Salon de eventos Lozano">
         </div>
         <div class="gi-overlay">
           <div class="gi-category">Comerciales</div>
@@ -472,9 +307,10 @@
       </div>
 
       <!-- OBRA 2 -->
+       <!--
       <div class="gallery-item" data-category="educativos">
         <div class="gi-img">
-          <img src="img/3-educando-aprende.webp" alt="Guarderia IMSS">
+          <img src="img/webp/3 educando aprende .png" alt="Guarderia IMSS">
         </div>
         <div class="gi-overlay">
           <div class="gi-category">Educativos</div>
@@ -484,9 +320,10 @@
       </div>
 
       <!-- OBRA 3 -->
+       <!--
       <div class="gallery-item" data-category="educativos">
         <div class="gi-img">
-          <img src="img/4-naha-escobedo.webp" alt="NAHA Colegio">
+          <img src="img/webp/4 naha escobedo.png" alt="NAHA Colegio">
         </div>
         <div class="gi-overlay">
           <div class="gi-category">Educativos</div>
@@ -496,9 +333,10 @@
       </div>
 
       <!-- OBRA 4 -->
+       <!--
       <div class="gallery-item" data-category="comerciales">
         <div class="gi-img">
-          <img src="img/8-oficinas-CIQA.webp" alt="Oficinas CIQA 2023">
+          <img src="img/webp/8 oficinas CIQA.png" alt="Oficinas CIQA 2023">
         </div>
         <div class="gi-overlay">
           <div class="gi-category">Comerciales</div>
@@ -508,9 +346,10 @@
       </div>
 
       <!-- OBRA 5 -->
+       <!--
       <div class="gallery-item" data-category="educativos">
         <div class="gi-img">
-          <img src="img/7-Estancias-EPIM.webp" alt="Guarderia IMSS EPIM">
+          <img src="img/webp/7 Estancias EPIM.png" alt="Guarderia IMSS EPIM">
         </div>
         <div class="gi-overlay">
           <div class="gi-category">Educativos</div>
@@ -518,11 +357,13 @@
           <div class="gi-location">Guadalupe, Nuevo Leon · 2021</div>
         </div>
       </div>
+      -->
 
       <!-- OBRA 6 -->
+       <!--
       <div class="gallery-item" data-category="comerciales">
         <div class="gi-img">
-          <img src="img/6-torre-411.webp" alt="Torre 411">
+          <img src="img/webp/6 torre 411.png" alt="Torre 411">
         </div>
         <div class="gi-overlay">
           <div class="gi-category">Comerciales</div>
@@ -532,7 +373,7 @@
       </div>
 
     </div><!-- /gallery-grid -->
-
+<!--
     <div class="gallery-cta">
       <a href="https://wa.me/528186052831?text=Hola,%20vi%20tu%20informacion%20en%20Mi%20Arqui%20on%20line%20y%20me%20gustaría%20solicitar%20un%20portafolio%20completo%20de%20proyectos."
          target="_blank"
@@ -543,13 +384,14 @@
     </div>
 
   </div><!-- /gallery-wrapper -->
-
+<!--
 </section><!-- /gallery-section -->
 
 
 <!-- ════════════════════════════════════════════════════════════
   SERVICIOS-GUARDERIAS IMSS
 ════════════════════════════════════════════════════════════ -->
+<!--
 <section class="guarderias-section" id="guarderias">
 
   <div class="guarderias-intro">
@@ -583,9 +425,12 @@
   </div>
 
   <!-- Tarjetas de guarderias — 5 tarjetas en grid de 3 columnas -->
+   <!--
   <div class="guarderias-grid">
 
+    
     <!-- Tarjeta 1 -->
+     <!--
     <div class="guarderias-card" onclick="openModal('Proyectos Arquitectonicos IMSS')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -608,6 +453,7 @@
     </div>
 
     <!-- Tarjeta 2 -->
+     <!--
     <div class="guarderias-card" onclick="openModal('Cambios en Planos')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
@@ -630,6 +476,7 @@
     </div>
 
     <!-- Tarjeta 3 -->
+     <!--
     <div class="guarderias-card" onclick="openModal('Ampliaciones o Cambio de domicilio')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
@@ -653,6 +500,7 @@
     </div>
 
     <!-- Tarjeta 4 -->
+     <!--
     <div class="guarderias-card" onclick="openModal('Licitaciones / Guarderias nuevas')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -676,6 +524,7 @@
     </div>
 
     <!-- Tarjeta 5 -->
+     <!--
     <div class="guarderias-card" onclick="openModal('Dictamen Estructural')">
       <div class="sc-icon">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -697,15 +546,17 @@
       </div>
     </div>
 
+    -->
+<!--
   </div><!-- /guarderias-grid -->
-
+<!--
 </section><!-- /guarderias-section -->
 
 
 <!-- ════════════════════════════════════════════════════════════
   GALERÍA — CURRICULUM (planos)
 ════════════════════════════════════════════════════════════ -->
-
+<!--
 <section class="gallery-section" id="obras">
 
 <div>
@@ -716,28 +567,29 @@
       <h2 class="section-title"> Algunos proyectos <em>resueltos</em></h2>
     </div>
   
-    <body>
+    
 
     <div class="gallery">
       
-      <img src="img/planos/U-1169.webp" alt="Interamericano">
-      <img src="img/planos/U-1657.webp" alt="Kant celeste">
-      <img src="img/planos/U-439.webp"  alt="Psicoeducativo Huinala">
+      <img src="img/webp/INTERAMERICANO planta baja.png" alt="Interamericano">
+      <img src="img/webp/KANT 440 planta baja.png" alt="Kant celeste">
+      <img src="img/planos/U-351.png"  alt="Psicoeducativo Huinala">
       <img src="img/planos/U-774.webp"  alt="Alegres dias">
-      <img src="img/planos/U-351.webp"  alt="Baby care">
+      <img src="img/webp/PSICOEDUCATIVO HUINALA planta baja.png"  alt="Baby care">
     
 
-    </body>
+    
  </div>
 
 
 <section class="gallery-section" id="obras"></section> 
-
+-->
 
 
 <!-- ════════════════════════════════════════════════════════════
   PLANES / MEMBRESÍAS
 ════════════════════════════════════════════════════════════ -->
+<!--
 <section class="plans-section" id="planes">
 
   <div class="plans-intro">
@@ -751,8 +603,9 @@
   </div>
 
   <div class="plans-grid">
-
+-->
     <!-- Plan 1: Consultoría -->
+     <!--
     <div class="plan-card">
       <div class="plan-market">Autoconstrucción</div>
       <div class="plan-name">Consultoría Técnica</div>
@@ -796,8 +649,9 @@
     💳 Pagar · Agendar Cita
   </button>
   </div>
-
+-->
     <!-- Plan 2: Supervisión (DESTACADO) -->
+     <!--
     <div class="plan-card featured">
       <div class="plan-popular">MÁS CONTRATADO</div>
       <div class="plan-market">Autoconstrucción</div>
@@ -842,7 +696,9 @@
     💳 Pagar · Agendar Cita
   </button>
   </div>
+  -->
     <!-- Plan 3: Proyecto Residencial Completo -->
+     <!--
     <div class="plan-card">
       <div class="plan-market">Residencial</div>
       <div class="plan-name">Proyecto Completo</div>
@@ -886,8 +742,9 @@
     Agendar Cita →
   </button>
     </div>
-
+-->
     <!-- Plan 4: Especializado -->
+     <!--
     <div class="plan-card">
       <div class="plan-market">Comercial · Escolar</div>
       <div class="plan-name">Proyecto Especializado</div>
@@ -930,16 +787,17 @@
     Agendar Cita →
   </button>
    
- </div><!-- /plans-grid -->
-</section><!-- /plans-section -->
+   
+ </div>--><!-- /plans-grid -->
  
+</section><!-- /plans-section -->
 
+<!--
   <p class="plans-note">
     * Todos los precios son en MXN, no incluyen IVA · Consulta inicial gratuita de 30 min vía telefónica ·
     Formas de pago: efectivo, transferencia, tarjeta *
   </p>
-
- 
+  -->
 
 <!-- ════════════════════════════════════════════════════════════
   TESTIMONIOS
@@ -1044,20 +902,43 @@
   </div>
 </section>
 
+<section class="people01-section" id="equipo">
+    <div class="people-container">
+        
+        <div class="title-wrapper">
+            <div class="title-wrap">
+                <h2 class="mbr-section-title">Especialistas al Frente</h2>
+            </div>
+        </div>
 
-<!-- ════════════════════════════════════════════════════════════
-  FOOTER
-════════════════════════════════════════════════════════════ -->
-<footer class="footer">
-  <div class="footer-logo">MI ARQUI. [on line] — Servicios de Arquitectura</div>
-  <div class="footer-links">
-   
-    <a href="#">Aviso de privacidad</a>
-  </div>
-  <div class="footer-copy">
-    © 2025 · Todos los derechos reservados
-  </div>
-</footer>
+        <div class="items-wrap">
+            
+            <div class="item-card">
+                <div class="item-wrapper">
+                    <div class="corner-wrap corner_1"></div>
+                    <div class="corner-wrap corner_2"></div>
+                    
+                    <div class="text-box">
+                        <p class="item-role">Gerente de Proyectos</p>
+                        <h4 class="item-title">Arq. Antonio Ortiz</h4>
+                        <p class="item-text">Lidera el equipo hacia el éxito con su visión estratégica y control normativo.</p>
+                    </div>
+                    
+                    <div class="image-wrapper">
+                        <div class="item-img">
+                            <img src="img/me.jpg" alt="Arq. pacho - Mi Arqui">
+                        </div>
+                        <div class="mbr-section-btn">
+                            <a class="btn-card-action" href="#contacto">Saber Más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </div>
+    
+</section>
 
 
 <!-- ════════════════════════════════════════════════════════════
@@ -1277,11 +1158,7 @@
   </div><!-- /modal -->
 </div><!-- /modal-overlay -->
 
-<script src="app.js"></script>
-</body>
 
-
-<link rel="stylesheet" href="redes sociales.css">
 <footer class="main-footer">
   <div class="footer-container">
     
@@ -1294,7 +1171,7 @@
       <ul class="ul">
         
         <li>
-          <a href="https://www.facebook.com/TU_PERFIL" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/profile.php?id=100064347895457" target="_blank" rel="noopener noreferrer">
             <i class="fa fa-facebook" aria-hidden="true"></i>
             <span>Facebook</span>
           </a>
@@ -1326,4 +1203,206 @@
 
   </div>
 </footer>
+
+<!-- ════════════════════════════════════════════════════════════
+  FOOTER
+════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-logo">MI ARQUI. [on line] — Servicios de Arquitectura</div>
+  <div class="footer-links">
+   
+    <a href="#">Aviso de privacidad</a>
+  </div>
+  <div class="footer-copy">
+    © 2025 · Todos los derechos reservados
+  </div>
+</footer>
+
+<!--
+ <style>
+    /* ══════════════════════════════════════════════
+       CORRECCIONES DE CENTRADO Y FONDOS
+    ══════════════════════════════════════════════ */
+
+    /* --- Galería de planos (curriculum) --- */
+    .curriculum-block {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+      text-align: center;
+    }
+    .curriculum-block .section-eyebrow {
+      justify-content: center;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 32px;
+    }
+    .gallery img {
+      width: calc(20% - 16px);
+      min-width: 140px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* --- Galería de obras (portafolio) --- */
+    .gallery-section {
+      background: var(--bg, #0f0e0d);
+    }
+    .gallery-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .gallery-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery-item:first-child {
+      grid-column: span 1; /* sin doble columna, grilla limpia de 3 */
+    }
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery img {
+        width: calc(33% - 12px);
+      }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery img {
+        width: 100%;
+      }
+    }
+
+    /* --- Guarderias section --- */
+    .guarderias-section {
+      background: var(--bg, #0f0e0d);
+      padding: 80px 24px;
+    }
+    .guarderias-intro {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .guarderias-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .guarderias-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .guarderias-intro {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .guarderias-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* --- Servicios section --- */
+    .services-section {
+      background: var(--bg, #0f0e0d);
+      padding: 80px 24px;
+    }
+    .services-intro {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 700px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-intro {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Asegurar que service-card y guarderias-card tengan fondo propio */
+    .service-card,
+    .guarderias-card {
+      background: rgba(200,184,154,.06);
+      border: 1px solid rgba(200,184,154,.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: border-color .25s, transform .2s;
+    }
+    .service-card:hover,
+    .guarderias-card:hover {
+      border-color: rgba(200,184,154,.35);
+      transform: translateY(-3px);
+    }
+
+    /* Badges de servicio */
+    .services-badges {
+      margin-top: 24px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      color: var(--stone-l, #c8b89a);
+    }
+
+    /* Gallery CTA */
+    .gallery-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+  -->
+
+</body>
+<script src="app.js"></script>
 </html>
+
+
+
+
+
+
