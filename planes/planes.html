@@ -8,6 +8,16 @@
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   
+  <!-- ════════════════════════════════════════════════════════════
+  NAVIGATION
+════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="navbar">
+  <a class="nav-logo" href="../index.html">
+    <span>Mi ARQUI.</span> on line
+  </a>
+  
+</nav>
+
 </head>
 <body>
     
@@ -18,7 +28,7 @@
 
   <div class="plans-intro">
     <div class="section-eyebrow" style="justify-content:center">Tarifas</div>
-    <h2 class="section-title">Elige tu <em>plan</em></h2>
+    <h2 class="section-title">Planes para <em>servicios</em></h2>
     <div class="section-divider"></div>
     <p class="section-lead">
       Planes diseñados para cada etapa de tu proyecto. Todos incluyen una consulta
@@ -209,11 +219,124 @@
  </div><!-- /plans-grid -->
 </section><!-- /plans-section -->
  
-
   <p class="plans-note">
     * Todos los precios son en MXN, no incluyen IVA · Consulta inicial gratuita de 30 min vía telefónica ·
     Formas de pago: efectivo, transferencia, tarjeta *
+
   </p>
+
+
+  <div class="plans-intro">
+    <div class="section-eyebrow" style="justify-content:center">Tarifas</div>
+    <h2 class="section-title">Planes para <em>guarderias</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-lead">
+      Planes diseñados para ahorrarte tiempo con los requerimientos mas solicitados por el IMSS,
+      haciendo de sus oficios y notas informativas, algo mas sencillo de responder en tiempo y forma.
+    </p>
+  </div>
+
+  <div class="plans-grid"></div>
+
+   <!-- Plan 5: Cambios en planos (DESTACADO) -->
+    <div class="plan-card featured">
+      <div class="plan-popular">MÁS CONTRATADO</div>
+      <div class="plan-market">Guarderias IMSS</div>
+      <div class="plan-name">Cambios en planos</div>
+      <div class="plan-desc">Correcciones o cambios solicitados por el IMSS mediante Notas informativas u oficios. 
+        Ideal para guarderias que aun no cumplen con la Normativa.</div>
+      <div class="plan-price">
+        <span class="pp-currency">$</span>
+        <span class="pp-amount" id="price2">1,600.00</span>
+        <span class="pp-period">/ Nota informativa </span>
+      </div>
+      <div class="plan-price-note">2 visitas mensuales · Contrato mínimo 2 meses</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Plantas arquitectonicas
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Plano de cortes y elevaciones
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Plano de seguridad
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Plantas de conjutno
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Planos en CAD y PDF
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Planos impresos en 90 x 60 cms
+        </li>
+      </ul>
+        <button class="plan-btn plan-btn-solid"
+          onclick="openModal('Supervisión de Obra')"
+          style="width:100%;cursor:pointer;">
+    💳 Pagar · Agendar Cita
+  </button>
+  </div>
+  
+  <p>------------------------------------------------------------------------</p>
+
+  <!-- Plan 6: Proyecto arquitectonico -->
+    <div class="plan-card"> 
+      
+      <div class="plan-market">Guarderias IMSS</div>
+      <div class="plan-name">Proyecto arquitectonico</div>
+      <div class="plan-desc">Diseño y solucion para que tus instalaciones cumplan con el Apendice 17
+        "requisitos de diseño arquitectónico para proyectos de guarderías de prestación indirecta del IMSS. 
+        Ideal para guarderias que aun no cumplen con la Normativa.</div>
+      <div class="plan-price">
+        <span class="pp-currency">$</span>
+        <span class="pp-amount" id="price2">65.00</span>
+        <span class="pp-period">/ M2 </span>
+      </div>
+      <div class="plan-price-note">2 visitas mensuales · Contrato mínimo 2 meses</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Plantas arquitectonicas
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Plano de cortes y elevaciones
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Plano de seguridad
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Plantas de conjutno
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Planos en CAD y PDF
+        </li>
+        <li class="included">
+          <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Planos impresos en 90 x 60 cms
+        </li>
+      </ul>
+        <button class="plan-btn plan-btn-solid"
+          onclick="openModal('Supervisión de Obra')"
+          style="width:100%;cursor:pointer;">
+    💳 Pagar · Agendar Cita
+  </button>
+  </div>
+
+</div><!-- /plans-grid -->
+</section><!-- /plans-section -->
 
 <!-- ════════════════════════════════════════════════════════════
   MODAL DE AGENDA DE CITAS
@@ -432,6 +555,19 @@
   </div><!-- /modal -->
 </div><!-- /modal-overlay -->
 
+<!-- ════════════════════════════════════════════════════════════
+  FOOTER
+════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-logo">MI ARQUI. [on line] — Servicios de Arquitectura</div>
+  <div class="footer-links">
+   
+    <a href="#">Aviso de privacidad</a>
+  </div>
+  <div class="footer-copy">
+    © 2025 · Todos los derechos reservados
+  </div>
+</footer>
 
 </body>
 
